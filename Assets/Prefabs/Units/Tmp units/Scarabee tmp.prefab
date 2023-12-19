@@ -466,6 +466,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5640836547243053287}
+  - component: {fileID: 3723577639122361979}
+  - component: {fileID: 6361913975544942118}
+  - component: {fileID: 7145453157466453705}
   m_Layer: 0
   m_Name: Scarabee tmp
   m_TagString: Untagged
@@ -490,6 +493,44 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3723577639122361979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3959150104838288470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5200a1efd7cb7de449aff289fe0e2582, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6361913975544942118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3959150104838288470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c28ac231299d0d541a427870f0267152, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  jumpDist: 0
+--- !u!114 &7145453157466453705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3959150104838288470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f11de138315d10c47bd9871053013e22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4330407725013253527
 GameObject:
   m_ObjectHideFlags: 0
