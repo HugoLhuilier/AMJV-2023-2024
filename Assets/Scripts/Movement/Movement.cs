@@ -6,12 +6,15 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [SerializeField] private LayerMask groundlayer; 
+    [SerializeField] private LayerMask groundlayer;
+    [SerializeField] private ParticleSystem m_particle;
     private Boolean isSelected = false;
     private Camera m_camera;
     void Start()
     {
         m_camera = Camera.main;
+        var emission = m_particle.emission;
+        emission.enabled = false;
     }
 
     private void Update()
@@ -24,6 +27,8 @@ public class Movement : MonoBehaviour
                 // Teleported
                 transform.position = GetClickedPosition();
                 isSelected = false;
+                var emission = m_particle.emission;
+                emission.enabled = false;
             }
         }
     }
@@ -35,6 +40,8 @@ public class Movement : MonoBehaviour
         {
             // Selected
             isSelected = true;
+            var emission = m_particle.emission;
+            emission.enabled = true;
         }
     }
 
