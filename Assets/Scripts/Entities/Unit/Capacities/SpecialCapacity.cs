@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpecialCapacity : MonoBehaviour
+abstract public class SpecialCapacity : MonoBehaviour
 {
     [SerializeField] private float cooldownTime;
 
@@ -33,5 +33,5 @@ public class SpecialCapacity : MonoBehaviour
         }
     }
 
-    public virtual void useCapacity() { }
+    abstract public void useCapacity();
 }

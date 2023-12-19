@@ -703,6 +703,10 @@ PrefabInstance:
       value: CameraManager
       objectReference: {fileID: 0}
     - target: {fileID: 6735408347058697325, guid: ed5aba62c87e8994ca9fb5011ec317d3, type: 3}
+      propertyPath: cameraSpeed
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6735408347058697325, guid: ed5aba62c87e8994ca9fb5011ec317d3, type: 3}
       propertyPath: maxBoundary
       value: 
       objectReference: {fileID: 265709834}
@@ -710,9 +714,13 @@ PrefabInstance:
       propertyPath: minBoundary
       value: 
       objectReference: {fileID: 1576327991}
+    - target: {fileID: 6735408347058697325, guid: ed5aba62c87e8994ca9fb5011ec317d3, type: 3}
+      propertyPath: smoothSpeed
+      value: 0.605
+      objectReference: {fileID: 0}
     - target: {fileID: 6735408347058697326, guid: ed5aba62c87e8994ca9fb5011ec317d3, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6735408347058697326, guid: ed5aba62c87e8994ca9fb5011ec317d3, type: 3}
       propertyPath: m_LocalPosition.x

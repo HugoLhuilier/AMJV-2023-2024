@@ -15,7 +15,7 @@ public class CameraManager : MonoBehaviour
     // (par ex : le curseur de situe dans les 5% de lécran le plus à gauche)
     [SerializeField] private Transform minBoundary; // Transform se situant en position (Xmin, Ymin) d'où peut se déplacer la caméra
     [SerializeField] private Transform maxBoundary; // Transform se situant en position (Xmax, Ymax) d'où peut se déplacer la caméra
-    [SerializeField] private float smoothSpeed;  // Facteur rendant les mouvements de caméra plus smooth
+    [SerializeField, Range(0f, 1f)] private float smoothSpeed;  // Facteur rendant les mouvements de caméra plus smooth
 
     private Vector3 rightVector; // Vecteur que suit la caméra lorsque le curseur est à droite
     private Vector3 upVector;   // Vecteur que suit la caméra lorsque le curseur est en haut
@@ -82,6 +82,6 @@ public class CameraManager : MonoBehaviour
 
         // Debug.Log(curPos);
 
-        _camera.transform.position = Vector3.Lerp(curPos, newPos, smoothSpeed * Time.deltaTime);
+        _camera.transform.position = Vector3.Lerp(curPos, newPos, smoothSpeed);
     }
 }
