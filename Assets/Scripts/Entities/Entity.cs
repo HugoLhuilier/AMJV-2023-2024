@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour
 {
-    [SerializeField] private Life lifeComp;
+    private Life lifeComp;
 
     private void Start()
     {
