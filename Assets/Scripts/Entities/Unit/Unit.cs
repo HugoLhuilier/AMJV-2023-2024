@@ -9,7 +9,6 @@ public class Unit : Entity
     public SpecialCapacity specialCapacity { get; private set; }
     public UnitStateController stateController { get; private set; }
     public Team team { get; private set; }
-    public NavMeshAgent agent { get; private set; }
 
     private void Start()
     {
@@ -17,6 +16,5 @@ public class Unit : Entity
         specialCapacity = GetComponent<SpecialCapacity>();
         stateController = GetComponent<UnitStateController>();
         team = GetComponent<Team>();
-        agent = GetComponent<NavMeshAgent>();
     }
 }

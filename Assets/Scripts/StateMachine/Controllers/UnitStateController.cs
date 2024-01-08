@@ -7,7 +7,9 @@ public class UnitStateController : MonoBehaviour
 {
     private BaseState currentState;
 
-    private IdleState idleState = new IdleState();
+    public IdleState idleState = new IdleState();
+    public MoveUnityState moveUnityState = new MoveUnityState();
+    public MovePositionState movePositionState = new MovePositionState();
 
     public Vector3 targetPos {  get; set; }
     public Transform targetUnity {  get; set; }
@@ -27,5 +29,13 @@ public class UnitStateController : MonoBehaviour
     void Update()
     {
         currentState.UpdateState(this);
+    }
+
+    public void SwitchState(BaseState state)
+    {
+        // Debug.Log("Switch State");
+        currentState.ExitState(this);
+        currentState = state;
+        state.EnterState(this);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Team : MonoBehaviour
 {
-    public bool isAttacker { get;  }
+    public bool isAttacker;
 
     public bool isSameTeam(Team opp)
     {
