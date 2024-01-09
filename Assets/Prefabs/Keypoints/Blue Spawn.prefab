@@ -12,12 +12,12 @@ GameObject:
   - component: {fileID: 998266523851543374}
   - component: {fileID: 6967769688859411844}
   - component: {fileID: 2612305870560214588}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4504419385281859815
 Transform:
@@ -109,12 +109,12 @@ GameObject:
   - component: {fileID: 1212999180028889693}
   - component: {fileID: 4807260527381585159}
   - component: {fileID: 8519327350745867054}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &6771502597140884224
 Transform:
@@ -206,12 +206,12 @@ GameObject:
   - component: {fileID: 2085992685792079626}
   - component: {fileID: 3064848317049883685}
   - component: {fileID: 6320090003621267164}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4691474612552853052
 Transform:
@@ -300,12 +300,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5631059000407551249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Blue Spawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5631059000407551249
 Transform:

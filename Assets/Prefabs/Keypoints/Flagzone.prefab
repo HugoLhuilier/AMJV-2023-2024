@@ -9,12 +9,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5631059000407551249}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flagzone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5631059000407551249
 Transform:
@@ -45,12 +45,12 @@ GameObject:
   - component: {fileID: 5308219335053399628}
   - component: {fileID: 13826986615884238}
   - component: {fileID: 3175243167691971758}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &5308219335053399628
 Transform:
@@ -128,12 +128,12 @@ GameObject:
   - component: {fileID: 4780413216802625950}
   - component: {fileID: 2050491773833825229}
   - component: {fileID: 8868871297164377889}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4780413216802625950
 Transform:
@@ -211,12 +211,12 @@ GameObject:
   - component: {fileID: 3523110493863104733}
   - component: {fileID: 4805963695812860577}
   - component: {fileID: 4106011255669353217}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &3523110493863104733
 Transform:

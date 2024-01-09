@@ -19,7 +19,7 @@ public class GlobalVariables : MonoBehaviour
     {
         selectedUnits.Add(unit);
 
-        Debug.Log(selectedUnits.Count);
+        Debug.Log("nb unite selec : " + selectedUnits.Count);
     }
 
 
