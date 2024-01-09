@@ -5,7 +5,7 @@ using UnityEngine;
 public class UnitSelection : MonoBehaviour
 {
     public RectTransform unitSelectionBox;
-    public LayerMask unitMask;
+    private LayerMask unitMask;
     public bool isSelecting {  get; private set; }
 
     private List<Unit> unitList;
@@ -17,6 +17,7 @@ public class UnitSelection : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
+        unitMask = GlobalVariables.unitMask;
     }
 
     private void Update()

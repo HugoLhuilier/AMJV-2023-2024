@@ -8,17 +8,26 @@ public class UnitStateController : MonoBehaviour
     private BaseState currentState;
 
     public IdleState idleState = new IdleState();
-    public MoveUnityState moveUnityState = new MoveUnityState();
+    public MoveToCapacityState moveToCapacity = new MoveToCapacityState();
     public MovePositionState movePositionState = new MovePositionState();
+    public CastCapacityState castCapacityState = new CastCapacityState();
 
     public Vector3 targetPos {  get; set; }
     public Transform targetUnity {  get; set; }
     public NavMeshAgent agent { get; private set; }
+    public float range {  get; set; }
+    public bool specialCapacitySelected {  get; set; }
+
+    public int framesPathRecalculation = 10;
+    public BasicCapacity basicCapacity { get; private set; }
+    public SpecialCapacity specialCapacity { get; private set; }
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        basicCapacity = GetComponent<BasicCapacity>();
+        specialCapacity = GetComponent<SpecialCapacity>();
 
         currentState = idleState;
 

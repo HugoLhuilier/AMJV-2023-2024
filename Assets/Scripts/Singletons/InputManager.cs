@@ -6,12 +6,6 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] private UnitSelection unitSelection;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -49,10 +43,12 @@ public class InputManager : MonoBehaviour
                     // Debug.Log("raycast ok");
                     if (hit.collider.gameObject.GetComponent<Unit>() != null)
                     {
-                        foreach(Unit unit in GlobalVariables.selectedUnits)
+                        foreach (Unit unit in GlobalVariables.selectedUnits)
                         {
+                            unit.stateController.specialCapacitySelected = false;
+                            unit.stateController.range = unit.gameObject.GetComponent<BasicCapacity>().range;
                             unit.stateController.targetUnity = hit.transform;
-                            unit.stateController.SwitchState(unit.stateController.moveUnityState);
+                            unit.stateController.SwitchState(unit.stateController.moveToCapacity);
                         }
                     }
                     else

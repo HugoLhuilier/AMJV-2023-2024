@@ -13,6 +13,11 @@ public class Life : MonoBehaviour
 
     private int life;
 
+    private void Start()
+    {
+        life = maxLife;
+    }
+
     public void getDamages(int damage)
     {
         if (damage <= shield)
@@ -26,6 +31,8 @@ public class Life : MonoBehaviour
         }
 
         life = Mathf.Max(life, 0);
+
+        Debug.Log("AIIIEUUUUH IL ME RESTE " + life + " PONTS DE VIE");
     }
 
     public void getHeal(int heal)
