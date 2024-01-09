@@ -10,8 +10,14 @@ public class GlobalVariables : MonoBehaviour
 
     public static HashSet<Unit> selectedUnits = new HashSet<Unit>();
 
+    public static LayerMask unitMask;
+
+    [SerializeField] private LayerMask defUnitMask;
+
     private void Start()
     {
+        unitMask = defUnitMask;
+
         debugActions(); // /!\ SEULEMENT POUR LE DEBUG /!\ \\
     }
 
@@ -19,7 +25,7 @@ public class GlobalVariables : MonoBehaviour
     {
         selectedUnits.Add(unit);
 
-        Debug.Log(selectedUnits.Count);
+        // Debug.Log(selectedUnits.Count);
     }
 
 
@@ -33,5 +39,6 @@ public class GlobalVariables : MonoBehaviour
     {
         Unit[] tmp = Resources.FindObjectsOfTypeAll(typeof(Unit)) as Unit[];
         attackUnits = tmp.ToList();
+        attackUnits.RemoveAll(unit => ! unit.gameObject.GetComponent<Team>().isAttacker);
     }
 }

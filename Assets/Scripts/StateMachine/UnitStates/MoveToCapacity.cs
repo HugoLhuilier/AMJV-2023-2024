@@ -1,14 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-// Moves the unity towards another given unity
-
-public class MoveUnityState : BaseState
+public class MoveToCapacityState : BaseState
 {
     public override void EnterState(UnitStateController stateController)
     {
+        Debug.Log("Move to capacity");
         stateController.agent.SetDestination(stateController.targetUnity.position);
     }
 
@@ -27,6 +25,13 @@ public class MoveUnityState : BaseState
         if (!stateController.agent.hasPath)
         {
             stateController.SwitchState(stateController.idleState);
+        }
+
+        // Debug.Log("Distance restante : " + Vector3.Distance(stateController.transform.position, stateController.targetUnity.position) + " ; range : " + stateController.range);
+
+        if (Vector3.Distance(stateController.transform.position, stateController.targetUnity.position) < stateController.range)
+        {
+            stateController.SwitchState(stateController.castCapacityState);
         }
     }
 }

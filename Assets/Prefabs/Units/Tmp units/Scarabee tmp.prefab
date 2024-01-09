@@ -471,6 +471,7 @@ GameObject:
   - component: {fileID: 7145453157466453705}
   - component: {fileID: 7159253049105650740}
   - component: {fileID: 8176644957998087080}
+  - component: {fileID: 3124790238215910594}
   m_Layer: 0
   m_Name: Scarabee tmp
   m_TagString: Untagged
@@ -533,6 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11de138315d10c47bd9871053013e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isAttacker: 0
 --- !u!114 &7159253049105650740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -545,6 +547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d32a42900ea1e4787f17221f523428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  framesPathRecalculation: 10
 --- !u!195 &8176644957998087080
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -567,6 +570,20 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!136 &3124790238215910594
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3959150104838288470}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.8128097
+  m_Height: 1.8822825
+  m_Direction: 0
+  m_Center: {x: 0.25772095, y: 0, z: 0.036621317}
 --- !u!1 &4330407725013253527
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class SpecialCapacity : MonoBehaviour
+public abstract class BasicCapacity : MonoBehaviour
 {
     [SerializeField] private float cooldownTime;
+    [SerializeField] public float range;
 
     private float cooldownState = 0;
     private bool isReady = true;
 
-    private void Update()
+    // Update is called once per frame
+    void Update()
     {
         if (!isReady)
         {
@@ -24,7 +26,7 @@ abstract public class SpecialCapacity : MonoBehaviour
 
     public void castCapacity(Transform position)
     {
-        if(isReady)
+        if (isReady)
         {
             isReady = false;
             cooldownState = cooldownTime;
