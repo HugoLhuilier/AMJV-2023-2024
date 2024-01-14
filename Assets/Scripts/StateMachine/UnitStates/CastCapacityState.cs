@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CastCapacityState : BaseState
+public class CastCapacityState : BaseUnitState
 {
     public override void EnterState(UnitStateController stateController)
     {
@@ -25,6 +25,12 @@ public class CastCapacityState : BaseState
 
     public override void UpdateState(UnitStateController stateController)
     {
+        if (stateController.targetUnity == null)
+        {
+            stateController.SwitchState(stateController.idleState);
+            return;
+        }
+
         if (stateController.specialCapacitySelected)
         {
             stateController.SwitchState(stateController.idleState);

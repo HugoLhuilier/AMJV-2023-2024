@@ -30,13 +30,22 @@ public class Life : MonoBehaviour
             life = life - damage + shield;
         }
 
-        life = Mathf.Max(life, 0);
 
         Debug.Log("AIIIEUUUUH IL ME RESTE " + life + " PONTS DE VIE");
+
+        if (life <= 0)
+        {
+            die();
+        }
     }
 
     public void getHeal(int heal)
     {
         life = Mathf.Min(life + heal, maxLife);
+    }
+
+    public void die()
+    {
+        Destroy(gameObject);
     }
 }

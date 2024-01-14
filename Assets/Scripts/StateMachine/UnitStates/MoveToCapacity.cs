@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveToCapacityState : BaseState
+public class MoveToCapacityState : BaseUnitState
 {
     public override void EnterState(UnitStateController stateController)
     {

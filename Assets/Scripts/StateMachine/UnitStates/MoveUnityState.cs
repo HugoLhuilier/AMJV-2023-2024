@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 // Moves the unity towards another given unity
 
-public class MoveUnityState : BaseState
+public class MoveUnityState : BaseUnitState
 {
     public override void EnterState(UnitStateController stateController)
     {

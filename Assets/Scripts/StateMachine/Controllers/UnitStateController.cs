@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class UnitStateController : MonoBehaviour
 {
-    private BaseState currentState;
+    private BaseUnitState currentState;
 
     public IdleState idleState = new IdleState();
     public MoveToCapacityState moveToCapacity = new MoveToCapacityState();
@@ -40,7 +40,7 @@ public class UnitStateController : MonoBehaviour
         currentState.UpdateState(this);
     }
 
-    public void SwitchState(BaseState state)
+    public void SwitchState(BaseUnitState state)
     {
         // Debug.Log("Switch State");
         currentState.ExitState(this);
