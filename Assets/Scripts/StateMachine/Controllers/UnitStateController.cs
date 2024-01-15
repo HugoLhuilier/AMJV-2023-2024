@@ -15,7 +15,7 @@ public class UnitStateController : MonoBehaviour
     public Vector3 targetPos {  get; set; }
     public Transform targetUnity {  get; set; }
     public NavMeshAgent agent { get; private set; }
-    public float range {  get; set; }
+    public float basicRange {  get; set; }
     public bool specialCapacitySelected {  get; set; }
 
     public int framesPathRecalculation = 10;
@@ -28,6 +28,8 @@ public class UnitStateController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         basicCapacity = GetComponent<BasicCapacity>();
         specialCapacity = GetComponent<SpecialCapacity>();
+
+        basicRange = basicCapacity.range;
 
         currentState = idleState;
 

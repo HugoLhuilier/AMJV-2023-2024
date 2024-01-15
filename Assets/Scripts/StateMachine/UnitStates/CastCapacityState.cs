@@ -36,7 +36,7 @@ public class CastCapacityState : BaseUnitState
             stateController.SwitchState(stateController.idleState);
         }
 
-        if (Vector3.Distance(stateController.transform.position, stateController.targetUnity.position) > stateController.range)
+        if (Vector3.Distance(stateController.transform.position, stateController.targetUnity.position) > stateController.basicRange)
         {
             stateController.SwitchState(stateController.moveToCapacity);
         }

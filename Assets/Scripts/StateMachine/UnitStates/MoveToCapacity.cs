@@ -6,7 +6,7 @@ public class MoveToCapacityState : BaseUnitState
 {
     public override void EnterState(UnitStateController stateController)
     {
-        Debug.Log("Move to capacity");
+        // Debug.Log("Move to capacity");
         stateController.agent.SetDestination(stateController.targetUnity.position);
     }
 
@@ -27,9 +27,9 @@ public class MoveToCapacityState : BaseUnitState
             stateController.SwitchState(stateController.idleState);
         }
 
-        // Debug.Log("Distance restante : " + Vector3.Distance(stateController.transform.position, stateController.targetUnity.position) + " ; range : " + stateController.range);
+        // Debug.Log("Distance restante : " + Vector3.Distance(stateController.transform.position, stateController.targetUnity.position) + " ; range : " + stateController.basicRange);
 
-        if (Vector3.Distance(stateController.transform.position, stateController.targetUnity.position) < stateController.range)
+        if (Vector3.Distance(stateController.transform.position, stateController.targetUnity.position) < stateController.basicRange)
         {
             stateController.SwitchState(stateController.castCapacityState);
         }

@@ -43,6 +43,11 @@ public class PatrolState : BaseEnnemyState
 
             MoveToPosition(stateController);
         }
+
+        if (Time.frameCount % stateController.framesTargetCheck == 0)
+        {
+            stateController.CheckTarget();
+        }
     }
 
 
