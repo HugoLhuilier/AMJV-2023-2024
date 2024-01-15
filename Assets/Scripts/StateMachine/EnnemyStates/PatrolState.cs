@@ -4,20 +4,58 @@ using UnityEngine;
 
 public class PatrolState : BaseEnnemyState
 {
-    private float waitTime;
+    private float waitTime = 0;
+    private bool isWaiting;
+    private int toPoint;
 
     public override void EnterState(EnnemyStateController stateController)
     {
-        throw new System.NotImplementedException();
+        isWaiting = false;
+        toPoint = 0;
+
+        if (Vector3.Distance(stateController.transform.position, stateController.patrolPositions[0].position) > Vector3.Distance(stateController.transform.position, stateController.patrolPositions[1].position))
+            toPoint = 1;
+
+        MoveToPosition(stateController);
     }
 
     public override void ExitState(EnnemyStateController stateController)
     {
-        throw new System.NotImplementedException();
+        StopMoving(stateController);
     }
 
     public override void UpdateState(EnnemyStateController stateController)
     {
-        throw new System.NotImplementedException();
+        waitTime += Time.deltaTime;
+
+        if (!stateController.unitController.agent.hasPath && !isWaiting)
+        {
+            isWaiting = true;
+            waitTime = -stateController.waitPositionTime;
+
+            StopMoving(stateController);
+        }
+
+        if (isWaiting && waitTime > 0)
+        {
+            isWaiting = false;
+            toPoint = 1 - toPoint;
+
+            MoveToPosition(stateController);
+        }
+    }
+
+
+    public void MoveToPosition(EnnemyStateController stateController)
+    {
+        stateController.unitController.targetPos = stateController.patrolPositions[toPoint].position;
+
+        stateController.unitController.SwitchState(stateController.unitController.movePositionState);
+    }
+
+
+    public void StopMoving(EnnemyStateController stateController)
+    {
+        stateController.unitController.SwitchState(stateController.unitController.idleState);
     }
 }

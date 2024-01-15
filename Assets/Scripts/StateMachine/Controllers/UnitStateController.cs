@@ -42,7 +42,7 @@ public class UnitStateController : MonoBehaviour
 
     public void SwitchState(BaseUnitState state)
     {
-        // Debug.Log("Switch State");
+        // Debug.Log(state);
         currentState.ExitState(this);
         currentState = state;
         state.EnterState(this);

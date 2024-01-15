@@ -7,10 +7,19 @@ public class EnnemyStateController : MonoBehaviour
 {
     private BaseEnnemyState currentState;
 
+    public PatrolState patrolState = new PatrolState();
+
+    public UnitStateController unitController {  get; private set; }
+    public Transform[] patrolPositions = new Transform[2];
+    public float waitPositionTime = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
+        unitController = GetComponent<UnitStateController>();
+
+        currentState = patrolState;
+
         currentState.EnterState(this);
     }
 
