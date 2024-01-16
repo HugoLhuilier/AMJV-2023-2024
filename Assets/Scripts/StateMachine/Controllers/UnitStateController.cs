@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class UnitStateController : MonoBehaviour
 {
-    private BaseState currentState;
+    private BaseUnitState currentState;
 
     public IdleState idleState = new IdleState();
     public MoveToCapacityState moveToCapacity = new MoveToCapacityState();
@@ -15,22 +15,28 @@ public class UnitStateController : MonoBehaviour
     public Vector3 targetPos {  get; set; }
     public Transform targetUnity {  get; set; }
     public NavMeshAgent agent { get; private set; }
-    public float range {  get; set; }
+    public float basicRange {  get; set; }
     public bool specialCapacitySelected {  get; set; }
 
     public int framesPathRecalculation = 10;
     public BasicCapacity basicCapacity { get; private set; }
     public SpecialCapacity specialCapacity { get; private set; }
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         basicCapacity = GetComponent<BasicCapacity>();
         specialCapacity = GetComponent<SpecialCapacity>();
 
-        currentState = idleState;
+        basicRange = basicCapacity.range;
 
+        currentState = idleState;
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
         currentState.EnterState(this);
     }
 
@@ -40,9 +46,9 @@ public class UnitStateController : MonoBehaviour
         currentState.UpdateState(this);
     }
 
-    public void SwitchState(BaseState state)
+    public void SwitchState(BaseUnitState state)
     {
-        // Debug.Log("Switch State");
+        // Debug.Log(state);
         currentState.ExitState(this);
         currentState = state;
         state.EnterState(this);

@@ -5,11 +5,10 @@ using UnityEngine.AI;
 
 // Moves the given unity to a given position
 
-public class MovePositionState : BaseState
+public class MovePositionState : BaseUnitState
 {
     public override void EnterState(UnitStateController stateController)
     {
-        // Debug.Log("Enter move position");
         stateController.agent.SetDestination(stateController.targetPos);
     }
 
@@ -20,7 +19,9 @@ public class MovePositionState : BaseState
 
     public override void UpdateState(UnitStateController stateController)
     {
-        if (!stateController.agent.hasPath)
+        // Debug.Log(stateController.agent.pathPending);
+
+        if (!stateController.agent.hasPath && !stateController.agent.pathPending)
         {
             stateController.SwitchState(stateController.idleState);
         }

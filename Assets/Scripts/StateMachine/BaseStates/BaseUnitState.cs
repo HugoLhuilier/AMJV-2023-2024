@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class BaseState
+public abstract class BaseUnitState
 {
     abstract public void EnterState(UnitStateController stateController);
 

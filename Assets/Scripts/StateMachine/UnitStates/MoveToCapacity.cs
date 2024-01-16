@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveToCapacityState : BaseState
+public class MoveToCapacityState : BaseUnitState
 {
     public override void EnterState(UnitStateController stateController)
     {
         Debug.Log("Move to capacity");
+        Debug.Log(stateController.targetUnity.position);
         stateController.agent.SetDestination(stateController.targetUnity.position);
+        Debug.Log(stateController.agent.hasPath);
+        Debug.Log(stateController.agent.pathStatus);
+        Debug.Log(stateController.agent.pathPending);
     }
 
     public override void ExitState(UnitStateController stateController)
     {
+        Debug.Log("Stop move to capacity");
         stateController.agent.ResetPath();
     }
 
@@ -22,14 +27,15 @@ public class MoveToCapacityState : BaseState
             stateController.agent.SetDestination(stateController.targetUnity.position);
         }
 
-        if (!stateController.agent.hasPath)
+        if (!stateController.agent.hasPath && !stateController.agent.pathPending)
         {
+            Debug.Log(stateController.agent.pathPending);
             stateController.SwitchState(stateController.idleState);
         }
 
-        // Debug.Log("Distance restante : " + Vector3.Distance(stateController.transform.position, stateController.targetUnity.position) + " ; range : " + stateController.range);
+        // Debug.Log("Distance restante : " + Vector3.Distance(stateController.transform.position, stateController.targetUnity.position) + " ; range : " + stateController.basicRange);
 
-        if (Vector3.Distance(stateController.transform.position, stateController.targetUnity.position) < stateController.range)
+        if (Vector3.Distance(stateController.transform.position, stateController.targetUnity.position) < stateController.basicRange)
         {
             stateController.SwitchState(stateController.castCapacityState);
         }

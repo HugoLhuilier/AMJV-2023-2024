@@ -472,7 +472,8 @@ GameObject:
   - component: {fileID: 7159253049105650740}
   - component: {fileID: 8176644957998087080}
   - component: {fileID: 3124790238215910594}
-  m_Layer: 0
+  - component: {fileID: 7503187165317157995}
+  m_Layer: 8
   m_Name: Scarabee tmp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,6 +585,20 @@ CapsuleCollider:
   m_Height: 1.8822825
   m_Direction: 0
   m_Center: {x: 0.25772095, y: 0, z: 0.036621317}
+--- !u!114 &7503187165317157995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3959150104838288470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 716538f5d0c7a7a48b55ca0568781f69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxLife: 20
+  shield: 2
 --- !u!1 &4330407725013253527
 GameObject:
   m_ObjectHideFlags: 0
