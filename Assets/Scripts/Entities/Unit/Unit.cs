@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+[RequireComponent(typeof(Moveable))]
+[RequireComponent(typeof(UnitStateController))]
+[RequireComponent(typeof(Team))]
+[RequireComponent(typeof(NavMeshAgent))]
+[RequireComponent(typeof(Life))]
 public class Unit : Entity
 {
     public Moveable moveable {  get; private set; }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestCaCCapacity : BasicCapacity
+public class SoldierBasicCapacity : BasicCapacity
 {
     [SerializeField] private float attackRadius = 1;
     [SerializeField] private int damages = 5;
