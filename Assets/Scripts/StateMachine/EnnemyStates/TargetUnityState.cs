@@ -6,17 +6,21 @@ public class TargetUnityState : BaseEnnemyState
 {
     public override void EnterState(EnnemyStateController stateController)
     {
+        // Debug.Log("Enter target");
         stateController.unitController.targetUnity = stateController.targetUnity;
         stateController.unitController.SwitchState(stateController.unitController.moveToCapacity);
     }
 
     public override void ExitState(EnnemyStateController stateController)
     {
-        throw new System.NotImplementedException();
+        // Debug.Log("Exit target");
     }
 
     public override void UpdateState(EnnemyStateController stateController)
     {
-        // Nothing
+        if (stateController.targetUnity == null)
+        {
+            stateController.SwitchState(stateController.defaultState);
+        }
     }
 }

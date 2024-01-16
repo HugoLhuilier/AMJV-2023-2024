@@ -6,12 +6,17 @@ public class MoveToCapacityState : BaseUnitState
 {
     public override void EnterState(UnitStateController stateController)
     {
-        // Debug.Log("Move to capacity");
+        Debug.Log("Move to capacity");
+        Debug.Log(stateController.targetUnity.position);
         stateController.agent.SetDestination(stateController.targetUnity.position);
+        Debug.Log(stateController.agent.hasPath);
+        Debug.Log(stateController.agent.pathStatus);
+        Debug.Log(stateController.agent.pathPending);
     }
 
     public override void ExitState(UnitStateController stateController)
     {
+        Debug.Log("Stop move to capacity");
         stateController.agent.ResetPath();
     }
 
@@ -22,8 +27,9 @@ public class MoveToCapacityState : BaseUnitState
             stateController.agent.SetDestination(stateController.targetUnity.position);
         }
 
-        if (!stateController.agent.hasPath)
+        if (!stateController.agent.hasPath && !stateController.agent.pathPending)
         {
+            Debug.Log(stateController.agent.pathPending);
             stateController.SwitchState(stateController.idleState);
         }
 

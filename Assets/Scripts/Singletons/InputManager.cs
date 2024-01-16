@@ -61,7 +61,7 @@ public class InputManager : MonoBehaviour
                     }
                 }
 
-                GlobalVariables.resetSelectedUnits();
+                GlobalVariables.ResetSelectedUnits();
             }
         } 
     }

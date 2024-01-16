@@ -22,8 +22,8 @@ public class UnitStateController : MonoBehaviour
     public BasicCapacity basicCapacity { get; private set; }
     public SpecialCapacity specialCapacity { get; private set; }
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         basicCapacity = GetComponent<BasicCapacity>();
@@ -32,7 +32,11 @@ public class UnitStateController : MonoBehaviour
         basicRange = basicCapacity.range;
 
         currentState = idleState;
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         currentState.EnterState(this);
     }
 

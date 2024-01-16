@@ -46,6 +46,6 @@ public class Life : MonoBehaviour
 
     public void die()
     {
-        Destroy(gameObject);
+        GlobalVariables.DeleteUnit(gameObject);
     }
 }

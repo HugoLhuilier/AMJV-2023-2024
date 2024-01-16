@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-public enum DefaultState { PatrolState, IdleState}
+// public enum DefaultState { PatrolState, IdleState}
 
 public class EnnemyStateController : MonoBehaviour
 {
@@ -14,7 +14,8 @@ public class EnnemyStateController : MonoBehaviour
     public IdleEnnemyState idleEnnemyState = new IdleEnnemyState();
     public TargetUnityState targetUnityState = new TargetUnityState();
 
-    public DefaultState defaultState;
+    // public DefaultState defaultStateSelection;
+    public BaseEnnemyState defaultState { get; private set; }
     public UnitStateController unitController {  get; private set; }
     public Transform[] patrolPositions = new Transform[2];
     public float waitPositionTime = 1f;
@@ -24,22 +25,20 @@ public class EnnemyStateController : MonoBehaviour
 
     private Team teamComp;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         unitController = GetComponent<UnitStateController>();
         teamComp = GetComponent<Team>();
 
-        if (defaultState == DefaultState.PatrolState)
-        {
-            currentState = patrolState;
-        }
+        defaultState = patrolState;
 
-        if (defaultState == DefaultState.IdleState)
-        {
-            currentState = idleEnnemyState;
-        }
+        currentState = defaultState;
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         currentState.EnterState(this);
     }
 
@@ -60,7 +59,7 @@ public class EnnemyStateController : MonoBehaviour
 
     public void CheckTarget()
     {
-        Debug.Log("Checking targets");
+        // Debug.Log("Checking targets");
         Collider[] hit = Physics.OverlapSphere(transform.position, visionRange, GlobalVariables.unitMask);
         Transform tmpTargetUnity = null;
 

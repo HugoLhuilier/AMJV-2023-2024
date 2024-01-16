@@ -17,6 +17,8 @@ public class PatrolState : BaseEnnemyState
             toPoint = 1;
 
         MoveToPosition(stateController);
+
+        Debug.Log("Start patrol");
     }
 
     public override void ExitState(EnnemyStateController stateController)

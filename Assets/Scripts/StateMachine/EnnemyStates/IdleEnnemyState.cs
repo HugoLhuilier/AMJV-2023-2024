@@ -6,6 +6,7 @@ public class IdleEnnemyState : BaseEnnemyState
 {
     public override void EnterState(EnnemyStateController stateController)
     {
+        Debug.Log("Idle ennemy state");
         stateController.unitController.SwitchState(stateController.unitController.idleState);
     }
 
