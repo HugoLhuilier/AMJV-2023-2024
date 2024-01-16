@@ -18,10 +18,10 @@ public class GlobalVariables : MonoBehaviour
     {
         unitMask = defUnitMask;
 
-        debugActions(); // /!\ SEULEMENT POUR LE DEBUG /!\ \\
+        DebugActions(); // /!\ SEULEMENT POUR LE DEBUG /!\ \\
     }
 
-    public static void addSelectedUnit(Unit unit)
+    public static void AddSelectedUnit(Unit unit)
     {
         selectedUnits.Add(unit);
 
@@ -29,13 +29,32 @@ public class GlobalVariables : MonoBehaviour
     }
 
 
-    public static void resetSelectedUnits()
+    public static void ResetSelectedUnits()
     {
         selectedUnits = new HashSet<Unit>();
     }
 
+    public static void DeleteUnit(GameObject unit)
+    {
+        Unit unitComp = unit.GetComponent<Unit>();
 
-    private void debugActions()
+        if (unitComp == null)
+            throw new System.Exception("Gameobject does not contain a unit.");
+
+        if (unit.GetComponent<Team>().isAttacker)
+        {
+            attackUnits.Remove(unitComp);
+            selectedUnits.Remove(unitComp);
+        }
+            
+        else
+            defenseUnits.Remove(unitComp);
+
+        Destroy(unit);
+    }
+
+
+    private void DebugActions()
     {
         Unit[] tmp = Resources.FindObjectsOfTypeAll(typeof(Unit)) as Unit[];
         attackUnits = tmp.ToList();

@@ -63,7 +63,7 @@ public class UnitSelection : MonoBehaviour
 
             if (screenPos.x > minPos.x && screenPos.x < maxPos.x && screenPos.y > minPos.y && screenPos.y < maxPos.y)
             {
-                GlobalVariables.addSelectedUnit(unit);
+                GlobalVariables.AddSelectedUnit(unit);
 
                 newUnits = true;
             }
@@ -71,7 +71,7 @@ public class UnitSelection : MonoBehaviour
 
         if (!newUnits)
         {
-            GlobalVariables.resetSelectedUnits();
+            GlobalVariables.ResetSelectedUnits();
         }
     }
 }

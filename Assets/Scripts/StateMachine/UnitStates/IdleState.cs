@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class IdleState : BaseState
+public class IdleState : BaseUnitState
 {
     public override void EnterState(UnitStateController stateController)
     {

@@ -46,7 +46,7 @@ public class InputManager : MonoBehaviour
                         foreach (Unit unit in GlobalVariables.selectedUnits)
                         {
                             unit.stateController.specialCapacitySelected = false;
-                            unit.stateController.range = unit.gameObject.GetComponent<BasicCapacity>().range;
+                            // unit.stateController.range = unit.gameObject.GetComponent<BasicCapacity>().range;
                             unit.stateController.targetUnity = hit.transform;
                             unit.stateController.SwitchState(unit.stateController.moveToCapacity);
                         }
@@ -61,7 +61,7 @@ public class InputManager : MonoBehaviour
                     }
                 }
 
-                GlobalVariables.resetSelectedUnits();
+                GlobalVariables.ResetSelectedUnits();
             }
         } 
     }
