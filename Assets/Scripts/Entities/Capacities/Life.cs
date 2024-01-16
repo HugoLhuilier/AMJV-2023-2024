@@ -11,6 +11,7 @@ public class Life : MonoBehaviour
     [SerializeField] private int maxLife;
     [SerializeField] private int shield;
 
+    private bool invincible = false;
     private int life;
 
     private void Start()
@@ -18,8 +19,11 @@ public class Life : MonoBehaviour
         life = maxLife;
     }
 
-    public void getDamages(int damage)
+    public void GetDamages(int damage)
     {
+        if (invincible)
+            return;
+
         if (damage <= shield)
         {
             life--;
@@ -31,21 +35,31 @@ public class Life : MonoBehaviour
         }
 
 
-        Debug.Log("AIIIEUUUUH IL ME RESTE " + life + " PONTS DE VIE");
+        // Debug.Log("AIIIEUUUUH IL ME RESTE " + life + " PONTS DE VIE");
 
         if (life <= 0)
         {
-            die();
+            Die();
         }
     }
 
-    public void getHeal(int heal)
+    public void GetHeal(int heal)
     {
         life = Mathf.Min(life + heal, maxLife);
     }
 
-    public void die()
+    public void Die()
     {
         GlobalVariables.DeleteUnit(gameObject);
+    }
+
+    public void BecomeInvincible()
+    {
+        invincible = true;
+    }
+
+    public void NotInivincibleAnymore()
+    {
+        invincible = false;
     }
 }

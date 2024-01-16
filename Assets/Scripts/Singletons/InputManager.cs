@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,19 @@ public class InputManager : MonoBehaviour
         SelectionInput();
 
         RightClickInput();
+
+        SpecialInput();
+    }
+
+    private void SpecialInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            foreach(Unit unit in GlobalVariables.selectedUnits)
+            {
+                unit.specialCapacity.castCapacity(unit.transform);
+            }
+        }
     }
 
     void SelectionInput()

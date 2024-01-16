@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TestCaCCapacity : BasicCapacity
+public class BeetleBasicCapacity : BasicCapacity
 {
     [SerializeField] private float attackRadius = 1;
-    [SerializeField] private int damages = 5;
+    [SerializeField] private int damages = 3;
     private Team team;
 
     private void Start()

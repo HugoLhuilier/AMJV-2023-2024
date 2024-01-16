@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class BasicCapacity : MonoBehaviour
 {
-    [SerializeField] private float cooldownTime;
+    [SerializeField] protected float cooldownTime;
     [SerializeField] public float range;
 
     private float cooldownState = 0;

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Moveable : MonoBehaviour
 {
-    [SerializeField] private float speed;
+    public float speed;
     [SerializeField] private float jumpDist;
     public NavMeshAgent agent { get; private set; }
 
