@@ -4,8 +4,8 @@ using UnityEngine;
 
 abstract public class SpecialCapacity : MonoBehaviour
 {
-    [SerializeField] private float cooldownTime;
-    [SerializeField] private float capacityDuration = 0;
+    [SerializeField] protected float cooldownTime;
+    [SerializeField] protected float capacityDuration = 0;
 
     private bool beingUsed = false;
     private float useDuration = 0;

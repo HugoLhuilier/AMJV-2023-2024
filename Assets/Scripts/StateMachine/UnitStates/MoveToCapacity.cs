@@ -17,6 +17,11 @@ public class MoveToCapacityState : BaseUnitState
 
     public override void UpdateState(UnitStateController stateController)
     {
+        if(stateController.targetUnity == null)
+        {
+            stateController.SwitchState(stateController.idleState);
+        }
+
         if (Time.frameCount % stateController.framesPathRecalculation == 0)
         {
             stateController.agent.SetDestination(stateController.targetUnity.position);

@@ -14,6 +14,7 @@ public class CastCapacityState : BaseUnitState
         else
         {
             // Debug.Log("Attaque basique");
+            stateController.transform.LookAt(stateController.targetUnity.position);
             stateController.basicCapacity.castCapacity(stateController.targetUnity);
         }
     }
@@ -41,6 +42,7 @@ public class CastCapacityState : BaseUnitState
             stateController.SwitchState(stateController.moveToCapacity);
         }
 
+        stateController.transform.LookAt(stateController.targetUnity.position);
         stateController.basicCapacity.castCapacity(stateController.targetUnity);
     }
 }

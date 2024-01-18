@@ -15,8 +15,10 @@ public class Unit : Entity
     public UnitStateController stateController { get; private set; }
     public Team team { get; private set; }
 
-    private void Start()
+    public override void Start()
     {
+        base.Start();
+
         moveable = GetComponent<Moveable>();
         specialCapacity = GetComponent<SpecialCapacity>();
         stateController = GetComponent<UnitStateController>();
