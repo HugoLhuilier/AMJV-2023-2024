@@ -2,17 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TankSpecialCapacity : MonoBehaviour
+public class TankSpecialCapacity : SpecialCapacity
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void endCapacity()
     {
-        
+        // Nothing
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void useCapacity(Transform position)
     {
-        
+        throw new System.NotImplementedException();
     }
 }
