@@ -94,7 +94,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5214854514734693410}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1
@@ -114,7 +114,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootPower: 50
   lifeTime: 10
-  bulletTeam: {fileID: 0}
   bulletDamages: 5
 --- !u!54 &1935863143478533448
 Rigidbody:

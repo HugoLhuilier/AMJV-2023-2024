@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float shootPower = 50;
     [SerializeField] private float lifeTime = 10;
 
-    public Team bulletTeam;
+    public Team bulletTeam {  get; private set; }
     public int bulletDamages = 5;
 
     private float timeLived = 0;
@@ -32,6 +32,8 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // Debug.Log(other);
+
         Unit unit = other.gameObject.GetComponent<Unit>();
 
         // Debug.Log(unit);
@@ -42,5 +44,19 @@ public class Bullet : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    public static void InstantiateBullet(GameObject go, Transform spawnPos, Team team, int bulletDamages)
+    {
+        if (go != null)
+        {
+            GameObject insBullet = Instantiate(go, spawnPos.position, spawnPos.rotation);
+            Bullet bulletComp = insBullet.GetComponent<Bullet>();
+
+            // Debug.Log("Je TIRE");
+
+            bulletComp.bulletTeam = team;
+            bulletComp.bulletDamages = bulletDamages;
+        }
     }
 }
