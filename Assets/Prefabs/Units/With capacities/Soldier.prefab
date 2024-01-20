@@ -103,6 +103,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5722033240485994481}
     m_Modifications:
+    - target: {fileID: -5306229077787623243, guid: 331a2a6be9de0254b98bc8675d6ba023, type: 3}
+      propertyPath: m_Drag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 647799162030651087, guid: 331a2a6be9de0254b98bc8675d6ba023, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -184,6 +188,20 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2567003094448429398, guid: 331a2a6be9de0254b98bc8675d6ba023, type: 3}
   m_PrefabInstance: {fileID: 6001056393247471283}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &808845816625421238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8131208754952105957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3753e3eda6ae38248942abeea7fdc088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 20
+  capacityDuration: 5
 --- !u!114 &3229355722705986858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,17 +232,3 @@ MonoBehaviour:
   range: 1
   attackRadius: 1
   damages: 5
---- !u!114 &808845816625421238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8131208754952105957}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3753e3eda6ae38248942abeea7fdc088, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldownTime: 20
-  capacityDuration: 5

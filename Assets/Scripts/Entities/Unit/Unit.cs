@@ -8,6 +8,7 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Team))]
 [RequireComponent(typeof(NavMeshAgent))]
 [RequireComponent(typeof(Life))]
+[RequireComponent(typeof(Rigidbody))]
 public class Unit : Entity
 {
     public Moveable moveable {  get; private set; }

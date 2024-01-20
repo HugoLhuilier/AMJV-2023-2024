@@ -30,9 +30,11 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        Unit unit = collision.gameObject.GetComponent<Unit>();
+        Unit unit = other.gameObject.GetComponent<Unit>();
+
+        // Debug.Log(unit);
 
         if (unit != null && !unit.team.isSameTeam(bulletTeam))
         {
