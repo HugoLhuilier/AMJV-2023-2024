@@ -9,10 +9,10 @@ public class Life : MonoBehaviour
      * le nombre de dégâts reçus (tout en reçevant toujours au moins 1 point de dégâts), et il peut recevoir des dégâts ou du heal. */
 
     [SerializeField] private int maxLife;
-    [SerializeField] private int shield;
+    public int shield;
 
     private bool invincible = false;
-    private int life;
+    public int life { get; private set; }
 
     private void Start()
     {

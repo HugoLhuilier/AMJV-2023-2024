@@ -4,12 +4,13 @@ using System.Collections;
 
 namespace TMPro.Examples
 {
-    public class TextConsole : MonoBehaviour
+    public class LoreConsole : MonoBehaviour
     {
         private TMP_Text m_TextComponent;
-        private bool hasTextChanged;
+        public bool hasTextChanged { get; private set; } 
         [SerializeField] float charatersTime;
         [SerializeField] float cycleTime;
+        public bool refresh;
 
         void Awake()
         {
@@ -68,6 +69,12 @@ namespace TMPro.Examples
                 {
                     yield return new WaitForSeconds(cycleTime);
                     visibleCount = 0;
+                }
+
+                if (refresh)
+                {
+                    visibleCount = 0;
+                    refresh = false;
                 }
 
                 textComponent.maxVisibleCharacters = visibleCount; // How many characters should TextMeshPro display?

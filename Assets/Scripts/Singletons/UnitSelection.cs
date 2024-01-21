@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro.Examples;
 using UnityEngine;
 
 public class UnitSelection : MonoBehaviour
@@ -12,7 +13,6 @@ public class UnitSelection : MonoBehaviour
     private Vector2 startPos;
 
     private Camera cam;
-
 
     private void Start()
     {
@@ -50,7 +50,7 @@ public class UnitSelection : MonoBehaviour
     public void StopSelection()
     {
         isSelecting = false;
-        unitSelectionBox.gameObject.SetActive (false);
+        unitSelectionBox.gameObject.SetActive(false);
 
         Vector2 minPos = unitSelectionBox.anchoredPosition - unitSelectionBox.sizeDelta/2;
         Vector2 maxPos = unitSelectionBox.anchoredPosition + unitSelectionBox.sizeDelta/2;
@@ -64,6 +64,7 @@ public class UnitSelection : MonoBehaviour
             if (screenPos.x > minPos.x && screenPos.x < maxPos.x && screenPos.y > minPos.y && screenPos.y < maxPos.y)
             {
                 GlobalVariables.AddSelectedUnit(unit);
+                
 
                 newUnits = true;
             }
