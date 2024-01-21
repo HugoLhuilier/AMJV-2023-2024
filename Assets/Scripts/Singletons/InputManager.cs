@@ -7,6 +7,10 @@ public class InputManager : MonoBehaviour
 {
     [SerializeField] private UnitSelection unitSelection;
 
+    private Func<Vector3> specialAction = null;
+    private Transform specialPos = null;
+    private float specialRange = 0f;
+
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +25,8 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            specialAction = null;
+
             foreach(Unit unit in GlobalVariables.selectedUnits)
             {
                 unit.specialCapacity.castCapacity(unit.transform);
@@ -37,16 +43,28 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
+            specialAction = null;
             unitSelection.StopSelection();
         }
     }
 
     private void RightClickInput()
     {
+        // Debug.Log("Bouton");
+
         if (Input.GetMouseButtonDown (1))
         {
-            // Debug.Log("Bouton");
-            if (GlobalVariables.selectedUnits.Count > 0)
+            if (specialAction != null)  // Execute pending special action if cursor in range
+            {
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                if(Physics.Raycast(ray, out hit) && Vector3.Distance(specialPos.position, hit.point) < specialRange)
+                {
+                    
+                }
+            }  
+            else if (GlobalVariables.selectedUnits.Count > 0)
             {
                 // Debug.Log(">0");
                 RaycastHit hit;
@@ -78,5 +96,13 @@ public class InputManager : MonoBehaviour
                 GlobalVariables.ResetSelectedUnits();
             }
         } 
+    }
+
+    public void StartActionPosition(Func<Vector3> action, Transform center = null, float range = Mathf.Infinity)
+    {
+        specialAction = action;
+
+        specialPos = center;
+        specialRange = range;
     }
 }
