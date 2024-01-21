@@ -50,7 +50,7 @@ abstract public class SpecialCapacity : MonoBehaviour
 
     public void Cast(Transform position)
     {
-        Debug.Log("Distance : " + Vector3.Distance(position.position, transform.position));
+        // Debug.Log("Distance : " + Vector3.Distance(position.position, transform.position));
 
         isReady = false;
         beingUsed = true;

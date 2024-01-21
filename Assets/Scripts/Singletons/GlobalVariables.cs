@@ -18,7 +18,7 @@ public class GlobalVariables : MonoBehaviour
     {
         unitMask = defUnitMask;
 
-        DebugActions(); // /!\ SEULEMENT POUR LE DEBUG /!\ \\
+        // DebugActions(); // /!\ SEULEMENT POUR LE DEBUG /!\ \\
     }
 
     public static void AddSelectedUnit(Unit unit)
