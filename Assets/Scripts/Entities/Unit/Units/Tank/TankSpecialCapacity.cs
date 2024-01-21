@@ -4,13 +4,29 @@ using UnityEngine;
 
 public class TankSpecialCapacity : SpecialCapacity
 {
+    [SerializeField] private GameObject explosiveBullet;
+    [SerializeField] private Transform spawnPos;
+    [SerializeField] private float bulletRange = 50;
+
+    private Team team;
+
+    private void Start()
+    {
+        team = GetComponent<Team>();
+    }
+
     public override void endCapacity()
     {
         // Nothing
     }
 
-    public override void useCapacity(Transform position)
+    protected override void useCapacity(Transform position)
     {
-        throw new System.NotImplementedException();
+        ExplosiveBullet.InstantiateExplosiveBullet(explosiveBullet, spawnPos, position.position, team);
+    }
+
+    public override void RequestPosition()
+    {
+        InputManager.Instance.StartActionPosition(this, transform, bulletRange);
     }
 }

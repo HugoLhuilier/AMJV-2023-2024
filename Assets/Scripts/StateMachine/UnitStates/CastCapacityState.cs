@@ -9,7 +9,7 @@ public class CastCapacityState : BaseUnitState
         // Debug.Log("Cast capacity enter");
         if (stateController.specialCapacitySelected)
         {
-            stateController.specialCapacity.castCapacity(stateController.targetUnity);
+            stateController.specialCapacity.RequestCast(stateController.targetUnity);
         }
         else
         {

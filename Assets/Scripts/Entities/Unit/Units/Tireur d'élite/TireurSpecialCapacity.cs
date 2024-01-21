@@ -26,7 +26,7 @@ public class TireurSpecialCapacity : SpecialCapacity
         transform.rotation = initRotation;
     }
 
-    public override void useCapacity(Transform position)
+    protected override void useCapacity(Transform position)
     {
         StartCoroutine(ShootBullets());
     }
@@ -46,5 +46,10 @@ public class TireurSpecialCapacity : SpecialCapacity
             yield return new WaitForSeconds(waitTime);
             transform.Rotate(0, rotationAngle, 0);
         }
+    }
+
+    public override void RequestPosition()
+    {
+        // Nothing
     }
 }

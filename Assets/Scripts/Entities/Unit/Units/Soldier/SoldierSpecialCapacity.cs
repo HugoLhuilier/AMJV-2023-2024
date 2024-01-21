@@ -17,9 +17,14 @@ public class SoldierSpecialCapacity : SpecialCapacity
         life.NotInivincibleAnymore();
     }
 
-    public override void useCapacity(Transform position)
+    protected override void useCapacity(Transform position)
     {
         Debug.Log("Bouclier !! :)");
         life.BecomeInvincible();
+    }
+
+    public override void RequestPosition()
+    {
+        // Nothing
     }
 }

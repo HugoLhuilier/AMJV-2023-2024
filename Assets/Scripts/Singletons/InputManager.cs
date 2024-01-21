@@ -5,11 +5,20 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    [SerializeField] private UnitSelection unitSelection;
+    public static InputManager Instance { get; private set; }
 
-    private Func<Vector3> specialAction = null;
+    [SerializeField] private UnitSelection unitSelection;
+    [SerializeField] private GameObject selectionSphere;
+
+    private GameObject activeSelectionSphere;
+    private SpecialCapacity pendingSpecialCapacity = null;
     private Transform specialPos = null;
     private float specialRange = 0f;
+
+    private void Start()
+    {
+        Instance = this;
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,11 +34,11 @@ public class InputManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            specialAction = null;
+            AbortActionPosition();
 
             foreach(Unit unit in GlobalVariables.selectedUnits)
             {
-                unit.specialCapacity.castCapacity(unit.transform);
+                unit.specialCapacity.RequestCast(unit.transform);
             }
         }
     }
@@ -43,7 +52,8 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            specialAction = null;
+            AbortActionPosition();
+
             unitSelection.StopSelection();
         }
     }
@@ -54,16 +64,19 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown (1))
         {
-            if (specialAction != null)  // Execute pending special action if cursor in range
+            if (pendingSpecialCapacity != null)  // Execute pending special action if cursor in range
             {
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                if(Physics.Raycast(ray, out hit) && Vector3.Distance(specialPos.position, hit.point) < specialRange)
+                if (Physics.Raycast(ray, out hit) && Vector3.Distance(specialPos.position, hit.point) < specialRange)
                 {
-                    
+                    ExecuteActionPosition(hit.point);
                 }
+                else
+                    AbortActionPosition();
             }  
+
             else if (GlobalVariables.selectedUnits.Count > 0)
             {
                 // Debug.Log(">0");
@@ -98,11 +111,43 @@ public class InputManager : MonoBehaviour
         } 
     }
 
-    public void StartActionPosition(Func<Vector3> action, Transform center = null, float range = Mathf.Infinity)
+    public void StartActionPosition(SpecialCapacity cap, Transform center = null, float range = Mathf.Infinity)
     {
-        specialAction = action;
+        pendingSpecialCapacity = cap;
 
         specialPos = center;
         specialRange = range;
+
+        if (center != null)
+        {
+            activeSelectionSphere = Instantiate(selectionSphere, center);
+            activeSelectionSphere.transform.localScale = 2 * range * Vector3.one;
+        }
+    }
+
+    public void StopActionPosition()
+    {
+        pendingSpecialCapacity = null;
+
+        Destroy(activeSelectionSphere);
+    }
+
+    public void ExecuteActionPosition(Vector3 pos)
+    {
+        GameObject go = new GameObject();
+
+        go.transform.position = pos;
+
+        pendingSpecialCapacity.Cast(go.transform);
+        StopActionPosition();
+    }
+
+    public void AbortActionPosition()
+    {
+        if (pendingSpecialCapacity != null)
+        {
+            pendingSpecialCapacity.ResetCooldown();
+            StopActionPosition();
+        }
     }
 }
