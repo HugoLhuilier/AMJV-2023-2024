@@ -208,22 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5200a1efd7cb7de449aff289fe0e2582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1701717255925740146
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5080185656531678460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35673ed0014d212499c3311d4aebe40c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cooldownTime: 0.5
-  range: 1
-  attackRadius: 1
-  damages: 3
 --- !u!195 &3125740345584012205
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -274,6 +258,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   jumpDist: 0
+--- !u!114 &4554106417010526795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5080185656531678460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d75afa9849aee0a4ebf19dee2536df0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldownTime: 0.5
+  range: 2
+  attackRadius: 1
+  damages: 3
 --- !u!114 &4700565585515418188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,6 +306,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownTime: 20
   capacityDuration: 10
+  needPosition: 0
   boostSpeed: 10
 --- !u!114 &8914795997845310787
 MonoBehaviour:

@@ -206,6 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownTime: 20
   capacityDuration: 5
+  needPosition: 0
 --- !u!114 &3229355722705986858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +221,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownTime: 0
   capacityDuration: 0
---- !u!114 &5265847859706356146
+  needPosition: 0
+--- !u!114 &1638452083896394457
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -229,10 +231,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8131208754952105957}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78df0508473d0af489d46260809869d6, type: 3}
+  m_Script: {fileID: 11500000, guid: d75afa9849aee0a4ebf19dee2536df0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 1
-  range: 1
+  range: 3
   attackRadius: 1
   damages: 5

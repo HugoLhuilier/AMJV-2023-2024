@@ -24,5 +24,18 @@ public class Unit : Entity
         specialCapacity = GetComponent<SpecialCapacity>();
         stateController = GetComponent<UnitStateController>();
         team = GetComponent<Team>();
+
+        if (team.isAttacker)
+            GlobalVariables.attackUnits.Add(this);
+        else
+            GlobalVariables.defenseUnits.Add(this);
+    }
+
+    private void OnDestroy()
+    {
+        if (team.isAttacker)
+            GlobalVariables.attackUnits.Remove(this);
+        else
+            GlobalVariables.defenseUnits.Remove(this);
     }
 }

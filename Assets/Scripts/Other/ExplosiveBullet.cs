@@ -12,13 +12,8 @@ public class ExplosiveBullet : MonoBehaviour
     [SerializeField] private int explosionDamages;
     [SerializeField] private float explosionForce;
 
-    private BallisticItem ballisticItem;
     public Team team {  get; private set; }
 
-    private void Awake()
-    {
-        ballisticItem = GetComponent<BallisticItem>();
-    }
 
     private void OnCollisionEnter(Collision collision)
     {

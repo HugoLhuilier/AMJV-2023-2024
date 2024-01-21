@@ -29,13 +29,13 @@ public class MoveToCapacityState : BaseUnitState
 
         if (!stateController.agent.hasPath && !stateController.agent.pathPending)
         {
-            Debug.Log(stateController.agent.pathPending);
+            // Debug.Log(stateController.agent.pathPending);
             stateController.SwitchState(stateController.idleState);
         }
 
         // Debug.Log("Distance restante : " + Vector3.Distance(stateController.transform.position, stateController.targetUnity.position) + " ; range : " + stateController.basicRange);
 
-        if (Vector3.Distance(stateController.transform.position, stateController.targetUnity.position) < stateController.basicRange)
+        if (Vector3.Distance(stateController.targetUnityCollider.ClosestPoint(stateController.transform.position), stateController.transform.position) < stateController.basicRange)
         {
             stateController.SwitchState(stateController.castCapacityState);
         }

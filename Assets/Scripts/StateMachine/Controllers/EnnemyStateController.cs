@@ -76,8 +76,14 @@ public class EnnemyStateController : MonoBehaviour
 
         if (tmpTargetUnity != null)
         {
-            targetUnity = tmpTargetUnity;
+            SetTargetUnityEnnemy(tmpTargetUnity);
             SwitchState(targetUnityState);
         }
+    }
+
+
+    public void SetTargetUnityEnnemy(Transform targetTr)
+    {
+        targetUnity = targetTr;
     }
 }

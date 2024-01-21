@@ -8,20 +8,19 @@ using UnityEngine.SocialPlatforms.GameCenter;
 public class BallisticItem : MonoBehaviour
 {
     [SerializeField] private float travelTime = 3;
-
-    private Vector3 launchPos;
-    private Vector3 destinationPos;
-
     private Rigidbody rb;
 
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+    }
 
-        Vector3 trajet = destinationPos - launchPos;
+    public void ThrowItem(Vector3 initPos, Vector3 targetPos, float travelTime)
+    {
+        Vector3 trajet = targetPos - initPos;
         Vector3 initForce = (trajet / travelTime) - (travelTime * Physics.gravity / 2);
 
-        rb.velocity = initForce;
+        rb.AddForce(initForce, ForceMode.Impulse);
     }
 
     public static BallisticItem LaunchItem(GameObject go, Transform pLaunchPos, Vector3 pDestPos)
@@ -29,8 +28,7 @@ public class BallisticItem : MonoBehaviour
         GameObject insBullet = Instantiate(go, pLaunchPos.position, pLaunchPos.rotation);
         BallisticItem balComp = insBullet.GetComponent<BallisticItem>();
 
-        balComp.launchPos = pLaunchPos.position;
-        balComp.destinationPos = pDestPos;
+        balComp.ThrowItem(pLaunchPos.position, pDestPos, balComp.travelTime);
 
         return balComp;
     }

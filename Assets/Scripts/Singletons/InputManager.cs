@@ -90,24 +90,24 @@ public class InputManager : MonoBehaviour
                     {
                         foreach (Unit unit in GlobalVariables.selectedUnits)
                         {
+                            // Debug.Log(unit.stateController);
+
                             unit.stateController.specialCapacitySelected = false;
                             // unit.stateController.range = unit.gameObject.GetComponent<BasicCapacity>().range;
-                            unit.stateController.targetUnity = hit.transform;
-                            unit.stateController.SwitchState(unit.stateController.moveToCapacity);
+                            unit.stateController.SwitchMoveCapacity(hit.transform);
                         }
                     }
                     else
                     {
                         foreach (Unit unit in GlobalVariables.selectedUnits)
                         {
-                            unit.stateController.targetPos = hit.point;
-                            unit.stateController.SwitchState(unit.stateController.movePositionState);
+                            // Debug.Log(unit.stateController);
+                            unit.stateController.SwitchMovePosition(hit.point);
                         }
                     }
                 }
-
-                GlobalVariables.ResetSelectedUnits();
             }
+            GlobalVariables.ResetSelectedUnits();
         } 
     }
 
