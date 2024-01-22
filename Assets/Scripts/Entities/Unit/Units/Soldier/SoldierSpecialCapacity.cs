@@ -13,13 +13,18 @@ public class SoldierSpecialCapacity : SpecialCapacity
 
     public override void endCapacity()
     {
-        Debug.Log("Plus de bouclier :(");
+        // Debug.Log("Plus de bouclier :(");
         life.NotInivincibleAnymore();
     }
 
-    public override void useCapacity(Transform position)
+    protected override void useCapacity(Transform position)
     {
-        Debug.Log("Bouclier !! :)");
+        // Debug.Log("Bouclier !! :)");
         life.BecomeInvincible();
+    }
+
+    public override void RequestPosition()
+    {
+        // Nothing
     }
 }

@@ -5,15 +5,17 @@ using UnityEngine.AI;
 
 public class UnitStateController : MonoBehaviour
 {
-    private BaseUnitState currentState;
+    public BaseUnitState currentState {  get; private set; }
 
     public IdleState idleState = new IdleState();
     public MoveToCapacityState moveToCapacity = new MoveToCapacityState();
     public MovePositionState movePositionState = new MovePositionState();
     public CastCapacityState castCapacityState = new CastCapacityState();
+    public Collider selfCollider { get; private set; }
 
     public Vector3 targetPos {  get; set; }
     public Transform targetUnity {  get; set; }
+    public Collider targetUnityCollider { get; set; }
     public NavMeshAgent agent { get; private set; }
     public float basicRange {  get; set; }
     public bool specialCapacitySelected {  get; set; }
@@ -28,6 +30,7 @@ public class UnitStateController : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         basicCapacity = GetComponent<BasicCapacity>();
         specialCapacity = GetComponent<SpecialCapacity>();
+        selfCollider = GetComponent<Collider>();
 
         basicRange = basicCapacity.range;
 
@@ -52,5 +55,28 @@ public class UnitStateController : MonoBehaviour
         currentState.ExitState(this);
         currentState = state;
         state.EnterState(this);
+    }
+
+    public void SetTargetUnity(Transform unitTr)
+    {
+        targetUnity = unitTr;
+        targetUnityCollider = unitTr.GetComponent<Collider>();
+    }
+
+    public void SetTargetPos(Vector3 pos)
+    {
+        targetPos = pos;
+    }
+
+    public void SwitchMoveCapacity(Transform target)
+    {
+        SetTargetUnity(target);
+        SwitchState(moveToCapacity);
+    }
+
+    public void SwitchMovePosition(Vector3 pos)
+    {
+        SetTargetPos(pos);
+        SwitchState(movePositionState);
     }
 }

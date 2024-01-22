@@ -21,8 +21,13 @@ public class BeetleSpecialCapacity : SpecialCapacity
         agent.speed = move.speed;
     }
 
-    public override void useCapacity(Transform position)
+    protected override void useCapacity(Transform position)
     {
         agent.speed = boostSpeed;
+    }
+
+    public override void RequestPosition()
+    {
+        // Nothing
     }
 }

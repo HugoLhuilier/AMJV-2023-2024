@@ -18,7 +18,7 @@ public class PatrolState : BaseEnnemyState
 
         MoveToPosition(stateController);
 
-        Debug.Log("Start patrol");
+        // Debug.Log("Start patrol");
     }
 
     public override void ExitState(EnnemyStateController stateController)
@@ -55,9 +55,7 @@ public class PatrolState : BaseEnnemyState
 
     public void MoveToPosition(EnnemyStateController stateController)
     {
-        stateController.unitController.targetPos = stateController.patrolPositions[toPoint].position;
-
-        stateController.unitController.SwitchState(stateController.unitController.movePositionState);
+        stateController.unitController.SwitchMovePosition(stateController.patrolPositions[toPoint].position);
     }
 
 

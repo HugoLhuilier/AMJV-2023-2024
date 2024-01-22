@@ -9,11 +9,12 @@ public class CastCapacityState : BaseUnitState
         // Debug.Log("Cast capacity enter");
         if (stateController.specialCapacitySelected)
         {
-            stateController.specialCapacity.castCapacity(stateController.targetUnity);
+            stateController.specialCapacity.RequestCast(stateController.targetUnity);
         }
         else
         {
             // Debug.Log("Attaque basique");
+            stateController.transform.LookAt(stateController.targetUnity.position);
             stateController.basicCapacity.castCapacity(stateController.targetUnity);
         }
     }
@@ -41,6 +42,7 @@ public class CastCapacityState : BaseUnitState
             stateController.SwitchState(stateController.moveToCapacity);
         }
 
+        stateController.transform.LookAt(stateController.targetUnity.position);
         stateController.basicCapacity.castCapacity(stateController.targetUnity);
     }
 }

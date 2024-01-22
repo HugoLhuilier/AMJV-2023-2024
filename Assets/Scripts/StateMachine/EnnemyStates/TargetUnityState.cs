@@ -7,8 +7,7 @@ public class TargetUnityState : BaseEnnemyState
     public override void EnterState(EnnemyStateController stateController)
     {
         // Debug.Log("Enter target");
-        stateController.unitController.targetUnity = stateController.targetUnity;
-        stateController.unitController.SwitchState(stateController.unitController.moveToCapacity);
+        stateController.unitController.SwitchMoveCapacity(stateController.targetUnity);
     }
 
     public override void ExitState(EnnemyStateController stateController)
