@@ -1295,7 +1295,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitSelection: {fileID: 667465160}
-  selectionSphere: {fileID: 6181202542789277546, guid: 5ad1ece7085318947af3132cdf3c69e1, type: 3}
+  selectionSphere: {fileID: 3528378584420003651, guid: ae0eb7fdc7970b443a4b7b4164dd52c0, type: 3}
+  groundHeight: -1.407889
 --- !u!4 &1870407393
 Transform:
   m_ObjectHideFlags: 0

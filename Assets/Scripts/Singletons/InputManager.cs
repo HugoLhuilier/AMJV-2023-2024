@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] private UnitSelection unitSelection;
     [SerializeField] private GameObject selectionSphere;
+    [SerializeField] private float groundHeight;
 
     private GameObject activeSelectionSphere;
     private SpecialCapacity pendingSpecialCapacity = null;
@@ -60,6 +61,8 @@ public class InputManager : MonoBehaviour
             {
                 unit.specialCapacity.RequestCast(unit.transform);
             }
+
+            GlobalVariables.ResetSelectedUnits();
         }
     }
 
@@ -141,7 +144,8 @@ public class InputManager : MonoBehaviour
         if (center != null)
         {
             activeSelectionSphere = Instantiate(selectionSphere, center);
-            activeSelectionSphere.transform.localScale = 2 * range * Vector3.one;
+            activeSelectionSphere.transform.position = new Vector3(activeSelectionSphere.transform.position.x, groundHeight, activeSelectionSphere.transform.position.z);
+            activeSelectionSphere.transform.localScale = 2 * range * new Vector3(1, 0, 1) + 0.1f * Vector3.up;
         }
     }
 
