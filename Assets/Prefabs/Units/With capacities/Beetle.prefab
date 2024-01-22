@@ -271,7 +271,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 0.5
-  range: 2
+  range: 2.5
   attackRadius: 1
   damages: 3
 --- !u!114 &4700565585515418188

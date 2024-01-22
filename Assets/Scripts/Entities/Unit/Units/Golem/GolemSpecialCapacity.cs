@@ -48,7 +48,7 @@ public class GolemSpecialCapacity : SpecialCapacity
             insController.SwitchMoveCapacity(controller.targetUnity);
         }
 
-        if (controller.currentState == controller.castCapacityState)
+        if (controller.currentState == controller.movePositionState)
         {
             UnitStateController insController = ins.GetComponentInChildren<UnitStateController>();
             insController.SwitchMovePosition(controller.targetPos);

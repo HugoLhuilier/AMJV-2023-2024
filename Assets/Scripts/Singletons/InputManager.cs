@@ -28,6 +28,26 @@ public class InputManager : MonoBehaviour
         RightClickInput();
 
         SpecialInput();
+
+        MeatThrowInput();
+    }
+
+    private void MeatThrowInput()
+    {
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            AbortActionPosition();
+
+            foreach (Unit unit in GlobalVariables.selectedUnits)
+            {
+                DompteurBasicCapacity cap = unit.gameObject.GetComponent<DompteurBasicCapacity>();
+
+                if (cap != null)
+                {
+
+                }
+            }
+        }
     }
 
     private void SpecialInput()

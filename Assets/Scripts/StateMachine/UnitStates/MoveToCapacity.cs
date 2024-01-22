@@ -6,6 +6,7 @@ public class MoveToCapacityState : BaseUnitState
 {
     public override void EnterState(UnitStateController stateController)
     {
+        // Debug.Log("Start move to capacity");
         stateController.agent.SetDestination(stateController.targetUnity.position);
     }
 

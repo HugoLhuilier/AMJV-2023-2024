@@ -86,7 +86,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6400559259716055521}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7209997, y: 1, z: 0}
+  m_LocalPosition: {x: 0, y: 1, z: 0.7209997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -329,6 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownTime: 20
   capacityDuration: 1
+  needPosition: 0
   arcAngle: 45
   numBullets: 10
   bulletDamages: 5
