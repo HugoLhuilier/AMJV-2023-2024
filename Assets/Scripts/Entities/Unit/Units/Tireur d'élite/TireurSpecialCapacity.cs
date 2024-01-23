@@ -35,16 +35,16 @@ public class TireurSpecialCapacity : SpecialCapacity
     {
         float waitTime = (capacityDuration / numBullets) - Time.deltaTime;
         float rotationAngle = 2 * arcAngle / (numBullets - 1);
-
-        transform.Rotate(0,-arcAngle, 0);
+        initRotation = transform.rotation;
+        float initRot = transform.rotation.eulerAngles.y;
 
         for (int i = 0; i < numBullets; i++)
         {
             // Debug.Log(transform.rotation);
 
+            transform.rotation = Quaternion.Euler(0, initRot - arcAngle + i * rotationAngle, 0);
             Bullet.InstantiateBullet(bullet, shootPoint, team, bulletDamages);
             yield return new WaitForSeconds(waitTime);
-            transform.Rotate(0, rotationAngle, 0);
         }
     }
 

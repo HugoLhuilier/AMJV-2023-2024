@@ -81,8 +81,8 @@ GameObject:
   - component: {fileID: 4488626430587971823}
   - component: {fileID: 4403512673524752980}
   - component: {fileID: 8383283669938880613}
-  - component: {fileID: 5248182220767580241}
-  - component: {fileID: 127329159085307279}
+  - component: {fileID: 8789550427156801087}
+  - component: {fileID: 3931189397990855159}
   m_Layer: 8
   m_Name: Unit asset
   m_TagString: Untagged
@@ -98,9 +98,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8399459691904049369}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
-  m_ConstrainProportionsScale: 1
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5722033240485994481}
   m_RootOrder: 2
@@ -133,7 +133,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7967c0e8434b9024296a222e90624b16, type: 2}
+  - {fileID: 2100000, guid: 292259755c6300742b08fc495f5b1bb2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c28ac231299d0d541a427870f0267152, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 5
   jumpDist: 0
 --- !u!114 &5168143392125522342
 MonoBehaviour:
@@ -196,7 +196,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   framesPathRecalculation: 10
-  stunTime: 0
 --- !u!114 &7076693896687014528
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,8 +243,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716538f5d0c7a7a48b55ca0568781f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 80
-  shield: 3
+  maxLife: 30
+  shield: 0
 --- !u!114 &4403512673524752980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +273,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5248182220767580241
+--- !u!114 &8789550427156801087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -283,16 +282,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 8399459691904049369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d75afa9849aee0a4ebf19dee2536df0d, type: 3}
+  m_Script: {fileID: 11500000, guid: 914b6e671b69076469eb6ce490041458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 3
-  forAllies: 0
-  range: 2
-  attackRadius: 1
-  damages: 20
-  knockback: 10
---- !u!114 &127329159085307279
+  forAllies: 1
+  range: 10
+  heal: 5
+  healRadius: 0.1
+--- !u!114 &3931189397990855159
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -301,14 +299,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8399459691904049369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b84c5abf7544a9d4b92580e58122ba2c, type: 3}
+  m_Script: {fileID: 11500000, guid: df8d91ac4aedb07469f722b4b8f0a870, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 20
   capacityDuration: 0
   needPosition: 0
-  stunTime: 5
-  stunRadius: 5
+  heal: 20
+  healRadius: 10
 --- !u!1 &8568739396275102047
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,7 +317,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5722033240485994481}
   m_Layer: 0
-  m_Name: Grobarak
+  m_Name: Medic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -11,6 +11,7 @@ public class UnitStateController : MonoBehaviour
     public MoveToCapacityState moveToCapacity = new MoveToCapacityState();
     public MovePositionState movePositionState = new MovePositionState();
     public CastCapacityState castCapacityState = new CastCapacityState();
+    public StunState stunState = new StunState();
     public Collider selfCollider { get; private set; }
 
     public Vector3 targetPos {  get; set; }
@@ -23,6 +24,9 @@ public class UnitStateController : MonoBehaviour
     public int framesPathRecalculation = 10;
     public BasicCapacity basicCapacity { get; private set; }
     public SpecialCapacity specialCapacity { get; private set; }
+
+    public BaseUnitState stateBeforeStun = null;
+    public float stunTime {  get; private set; }
 
 
     private void Awake()
@@ -78,5 +82,13 @@ public class UnitStateController : MonoBehaviour
     {
         SetTargetPos(pos);
         SwitchState(movePositionState);
+    }
+
+    public void GetStun(float time)
+    {
+        stateBeforeStun = currentState;
+        stunTime = time;
+
+        SwitchState(stunState);
     }
 }

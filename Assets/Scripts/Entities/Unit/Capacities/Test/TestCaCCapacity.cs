@@ -17,17 +17,17 @@ public class TestCaCCapacity : BasicCapacity
 
     public override void useCapacity(Vector3 position)
     {
-        // Debug.Log("Position : " + position.position);
+        // Debug.Log("Position : " + position);
         Collider[] hits = Physics.OverlapSphere(position, attackRadius, GlobalVariables.unitMask);
 
         foreach (Collider hit in hits)
         {
-            // Debug.Log("Voici le hit : " + hit);
+            // Debug.Log(hit);
             if (!team.isSameTeam(hit.gameObject.GetComponent<Team>()))
             {
                 hit.gameObject.GetComponent<Life>()?.GetDamages(damages);
                 Debug.Log(hit.GetComponent<Rigidbody>());
-                hit.GetComponent<Rigidbody>()?.AddExplosionForce(knockback, transform.position, 2 * range);
+                hit.GetComponent<Rigidbody>()?.AddForce(knockback * (hit.transform.position - transform.position).normalized, ForceMode.Impulse);
             }
         }
     }

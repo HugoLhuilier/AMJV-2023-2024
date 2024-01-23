@@ -37,7 +37,7 @@ public class Life : MonoBehaviour
         }
 
 
-        Debug.Log("AIIIEUUUUH IL ME RESTE " + life + " PONTS DE VIE");
+        // Debug.Log("AIIIEUUUUH IL ME RESTE " + life + " PONTS DE VIE");
 
         if (life <= 0)
         {
@@ -47,6 +47,7 @@ public class Life : MonoBehaviour
 
     public void GetHeal(int heal)
     {
+        // Debug.Log("Je suis heal <3 <3");
         life = Mathf.Min(life + heal, maxLife);
     }
 

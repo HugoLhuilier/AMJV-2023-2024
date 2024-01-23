@@ -115,7 +115,7 @@ GameObject:
   - component: {fileID: 3393285506454782392}
   - component: {fileID: 5896806637581009492}
   - component: {fileID: 3041474747103070072}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Unit asset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,9 +199,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5000001
-  m_Height: 2
+  m_Height: 2.0779066
   m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  m_Center: {x: 0.000000059604645, y: 0.038953334, z: -0.00000011920929}
 --- !u!114 &4795042125410226942
 MonoBehaviour:
   m_ObjectHideFlags: 0
