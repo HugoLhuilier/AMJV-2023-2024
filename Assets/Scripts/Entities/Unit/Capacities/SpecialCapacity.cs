@@ -8,11 +8,17 @@ abstract public class SpecialCapacity : MonoBehaviour
     [SerializeField] protected float capacityDuration = 0;
     [SerializeField] protected bool needPosition = false;
 
-    private bool beingUsed = false;
+    public bool beingUsed { get; private set;  }
     private float useDuration = 0;
-    private float cooldownState = 0;
-    private bool isReady = true;
+    public float cooldownState { get; private set; }
+    public bool isReady { get; private set; }
 
+    private void Start()
+    {
+        beingUsed = false;
+        isReady = true;
+        cooldownState = 0;
+    }
 
     private void Update()
     {

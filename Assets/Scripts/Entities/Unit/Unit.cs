@@ -11,10 +11,12 @@ using UnityEngine.AI;
 [RequireComponent(typeof(Rigidbody))]
 public class Unit : Entity
 {
-    public Moveable moveable {  get; private set; }
+    public Moveable moveable { get; private set; }
     public SpecialCapacity specialCapacity { get; private set; }
     public UnitStateController stateController { get; private set; }
     public Team team { get; private set; }
+    [SerializeField] GameObject selectionAura;
+    public bool isDisplayableInOverlay;
 
     public override void Start()
     {
@@ -37,5 +39,15 @@ public class Unit : Entity
             GlobalVariables.attackUnits.Remove(this);
         else
             GlobalVariables.defenseUnits.Remove(this);
+    }
+
+    public void getSelected()
+    {
+        selectionAura.SetActive(true);
+    }
+
+    public void getUnselected()
+    {
+        selectionAura.SetActive(false);
     }
 }
