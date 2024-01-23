@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Desert.unity
     guid: 4b8fe3a00e00d544caea253b1fc235c0
   - enabled: 1
-    path: Assets/Scenes/Levels/Snowy Plain.unity
+    path: Assets/Scenes/Levels/Green Plain.unity
     guid: f908cdddeb996694f828a07304d5ace0
   m_configObjects: {}
