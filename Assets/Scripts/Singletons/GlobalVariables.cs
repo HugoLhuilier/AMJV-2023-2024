@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class GlobalVariables : MonoBehaviour
 {
+    public static GlobalVariables Instance;
+
     public static List<Unit> attackUnits = new List<Unit>();
     public static List<Unit> defenseUnits = new List<Unit>();
 
@@ -19,8 +21,13 @@ public class GlobalVariables : MonoBehaviour
     [SerializeField] private LayerMask defUnitMask;
     [SerializeField] private float defGroundHeight;
 
-    private void Start()
+    public Transform spawnPos;
+    public Unit king = null;
+    public GameObject floatingText;
+
+    private void Awake()
     {
+        Instance = this;
         unitMask = defUnitMask;
         groundHeight = defGroundHeight;
 
