@@ -10,6 +10,7 @@ public class TireurSpecialCapacity : SpecialCapacity
     [SerializeField] private int bulletDamages;
     [SerializeField] private Transform shootPoint;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private AudioClip capacityAudioClip;
 
     private Team team;
     private Quaternion initRotation;
@@ -41,7 +42,7 @@ public class TireurSpecialCapacity : SpecialCapacity
         for (int i = 0; i < numBullets; i++)
         {
             // Debug.Log(transform.rotation);
-
+            AudioManager.Instance.PlaySFX(capacityAudioClip);
             transform.rotation = Quaternion.Euler(0, initRot - arcAngle + i * rotationAngle, 0);
             Bullet.InstantiateBullet(bullet, shootPoint, team, bulletDamages);
             yield return new WaitForSeconds(waitTime);

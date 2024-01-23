@@ -6,6 +6,7 @@ public class SoldierSpecialCapacity : SpecialCapacity
 {
     private Life life;
     [SerializeField] GameObject shield;
+    [SerializeField] AudioClip capacityAudioClip;
     private void Start()
     {
         life = GetComponent<Life>();
@@ -23,6 +24,7 @@ public class SoldierSpecialCapacity : SpecialCapacity
         // Debug.Log("Bouclier !! :)");
         life.BecomeInvincible();
         shield.SetActive(true);
+        AudioManager.Instance.PlaySFX(capacityAudioClip);
     }
 
     public override void RequestPosition()

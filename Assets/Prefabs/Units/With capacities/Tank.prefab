@@ -544,6 +544,7 @@ MonoBehaviour:
   bulletDamages: 12
   shootPoint: {fileID: 4580299873526173051}
   bullet: {fileID: 5214854514734693410, guid: f34525f2f51cab6428fe4a19f18f4c13, type: 3}
+  capacityAudioClip: {fileID: 8300000, guid: 5b77c41f560804faabfa71086726fba7, type: 3}
 --- !u!114 &7346713304577818342
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,6 +576,7 @@ MonoBehaviour:
   explosiveBullet: {fileID: 3939708100878035674, guid: 875b5144b7f2131439ad2423e7b25aab, type: 3}
   spawnPos: {fileID: 2238730063503684579}
   bulletRange: 50
+  capacityAudioClip: {fileID: 8300000, guid: 5b77c41f560804faabfa71086726fba7, type: 3}
 --- !u!114 &7801120372332126176
 MonoBehaviour:
   m_ObjectHideFlags: 0

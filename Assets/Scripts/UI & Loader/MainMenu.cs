@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] int mainMenuIndex = 0;
     [SerializeField] GameObject menu;
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject optionMenu;
@@ -21,6 +20,13 @@ public class MainMenu : MonoBehaviour
     [SerializeField] Camera camera_m;
     [SerializeField] Vector3 initialCameraPosition;
     [SerializeField] Timer timer;
+    [SerializeField] public AudioClip goAudioClip;
+
+    private void Start()
+    {
+        Debug.Log(AudioManager.Instance);
+        AudioManager.Instance.TitleScreen();
+    }
 
     void Update()
     {
@@ -28,7 +34,6 @@ public class MainMenu : MonoBehaviour
             Debug.Log("Pausing");
             PauseMenu();
         }
-/*        Debug.Log(Time.timeScale);*/
     }
 
     protected void ExitGame()
@@ -39,12 +44,14 @@ public class MainMenu : MonoBehaviour
 
     protected void PauseMenu()
     {
+        AudioManager.Instance.Pause();
         if (menu.activeSelf == false)
         {
             Debug.Log("Pause");
             Time.timeScale = 0;
             menu.SetActive(true);
             pauseMenu.SetActive(true);
+            AudioManager.Instance.PlaySFX(goAudioClip);
         }
     }
 
@@ -52,12 +59,14 @@ public class MainMenu : MonoBehaviour
     {
         mainMenu.SetActive(false);
         levelSelectionMenu.SetActive(true);
+        AudioManager.Instance.PlaySFX(goAudioClip);
     }
 
     protected void OptionsMenu()
     {
         mainMenu.SetActive(false);
         optionMenu.SetActive(true);
+        AudioManager.Instance.PlaySFX(goAudioClip);
     }
 
     protected void Back()
@@ -65,6 +74,7 @@ public class MainMenu : MonoBehaviour
         levelSelectionMenu.SetActive(false);
         optionMenu.SetActive(false);
         mainMenu.SetActive(true);
+        AudioManager.Instance.PlaySFX(goAudioClip);
     }
 
     protected void Abort()
@@ -75,6 +85,7 @@ public class MainMenu : MonoBehaviour
         defeatScreen.SetActive(false);
         pauseMenu.SetActive(false);
         mainMenu.SetActive(true);
+        AudioManager.Instance.PlaySFX(goAudioClip);
     }
 
     protected void Resume()
@@ -82,10 +93,13 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1;
         menu.SetActive(false);
         pauseMenu.SetActive(false);
+        AudioManager.Instance.PlaySFX(goAudioClip);
+        AudioManager.Instance.Level(GameManager.Instance.selectedLevelIndex);
     }
 
     protected void Go()
     {
+        AudioManager.Instance.PlaySFX(goAudioClip);
         levelSelectionMenu.SetActive(false);
         menu.SetActive(false);
         overlay.SetActive(true);
@@ -113,6 +127,7 @@ public class MainMenu : MonoBehaviour
         GameManager.Instance.isQuitting = true;
         GameManager.Instance.StartGame();
         Debug.Log(Time.timeScale);
+        AudioManager.Instance.PlaySFX(goAudioClip);
     }
 
     public void VictoryScreen()
@@ -132,7 +147,6 @@ public class MainMenu : MonoBehaviour
     protected void selectLevel2() { GameManager.Instance.selectLevel2(); }
     protected void selectLevel3() { GameManager.Instance.selectLevel3(); }
     protected void selectLevel4() { GameManager.Instance.selectLevel4(); }
-
 
     /*   protected void changeGraphicsSetting()
        {

@@ -6,6 +6,7 @@ public class MedicSpecialCapacity : SpecialCapacity
 {
     [SerializeField] private int heal = 20;
     [SerializeField] private float healRadius = 10;
+    [SerializeField] private AudioClip capacityAudioClip;
 
     private Team team;
 
@@ -34,6 +35,7 @@ public class MedicSpecialCapacity : SpecialCapacity
 
             if (unit != null && team.isSameTeam(unit.team)) 
             {
+                AudioManager.Instance.PlaySFX(capacityAudioClip);
                 unit.lifeComp.GetHeal(heal);
             }
         }

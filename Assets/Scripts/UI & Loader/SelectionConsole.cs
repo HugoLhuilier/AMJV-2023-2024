@@ -11,6 +11,9 @@ namespace TMPro.Examples
         [SerializeField] float charatersTime;
         public bool refresh;
 
+        [SerializeField] private AudioClip audioClip;
+
+
         void Awake()
         {
             m_TextComponent = gameObject.GetComponent<TMP_Text>();
@@ -76,6 +79,7 @@ namespace TMPro.Examples
                 textComponent.maxVisibleCharacters = visibleCount; // How many characters should TextMeshPro display?
 
                 visibleCount += 1;
+                AudioManager.Instance.PlaySFX(audioClip);
                 yield return new WaitForSeconds(charatersTime);
             }
         }

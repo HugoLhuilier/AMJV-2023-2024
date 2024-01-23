@@ -14,6 +14,8 @@ public class UnitSelection : MonoBehaviour
 
     private Camera cam;
 
+
+
     private void Start()
     {
         cam = Camera.main;
@@ -74,5 +76,6 @@ public class UnitSelection : MonoBehaviour
         {
             GlobalVariables.ResetSelectedUnits();
         }
+
     }
 }

@@ -404,6 +404,7 @@ MonoBehaviour:
   bulletDamages: 5
   shootPoint: {fileID: 1738113764836328530}
   bullet: {fileID: 6242941482952310878, guid: 68295cc5ffe9600489e923d914ff0168, type: 3}
+  capacityAudioClip: {fileID: 8300000, guid: ca65239c9c80743ad9dab137a815196a, type: 3}
 --- !u!114 &1622445143188429986
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,6 +515,7 @@ MonoBehaviour:
   bulletDamages: 5
   shootPoint: {fileID: 1738113764836328530}
   bullet: {fileID: 6242941482952310878, guid: 68295cc5ffe9600489e923d914ff0168, type: 3}
+  capacityAudioClip: {fileID: 8300000, guid: ca65239c9c80743ad9dab137a815196a, type: 3}
 --- !u!4 &7868412523566494598 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 647799162030651087, guid: 1de3e20ac5d58e441a8600a7f13a9206, type: 3}

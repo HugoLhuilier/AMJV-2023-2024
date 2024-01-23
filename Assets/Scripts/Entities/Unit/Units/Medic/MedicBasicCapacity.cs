@@ -6,6 +6,8 @@ public class MedicBasicCapacity : BasicCapacity
 {
     [SerializeField] private int heal = 5;
     [SerializeField] private float healRadius = 0.1f;
+    [SerializeField] private AudioClip capacityAudioClip;
+    
 
     public override void useCapacity(Vector3 position)
     {
@@ -17,6 +19,7 @@ public class MedicBasicCapacity : BasicCapacity
 
             if (life != null)
             {
+                AudioManager.Instance.PlaySFX(capacityAudioClip);
                 life.GetHeal(heal);
                 return;
             }

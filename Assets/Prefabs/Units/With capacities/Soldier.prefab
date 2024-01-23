@@ -319,6 +319,7 @@ MonoBehaviour:
   capacityDuration: 5
   needPosition: 0
   shield: {fileID: 9090848036980421966}
+  capacityAudioClip: {fileID: 8300000, guid: 846c5ca1cc77f4e3d963261b770e1e69, type: 3}
 --- !u!114 &1638452083896394457
 MonoBehaviour:
   m_ObjectHideFlags: 0

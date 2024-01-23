@@ -12,12 +12,14 @@ public class GameManager : MonoBehaviour
     private int level3Index = 3;
     private int level4Index = 4;
     private int currentLevelIndex;
-    private int selectedLevelIndex;
+    public int selectedLevelIndex { private set; get; }
 
 
     [SerializeField] private MainMenu menu;
     public GameObject carriedFlag;
     public bool isQuitting = false;
+
+    [SerializeField] private AudioClip selectionSFX;
 
     private void Start()
     {
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
         isQuitting = false;
         Time.timeScale = 1;
         Debug.Log("Game started");
+        AudioManager.Instance.Level(currentLevelIndex);
     }
 
     public void WinGame()
@@ -69,9 +72,20 @@ public class GameManager : MonoBehaviour
         SceneManager.UnloadSceneAsync(currentLevelIndex);
     }
 
-    public void selectLevel1() { selectedLevelIndex = level1Index; }
-    public void selectLevel2() { selectedLevelIndex = level2Index; }
-    public void selectLevel3() { selectedLevelIndex = level3Index; }
-    public void selectLevel4() { selectedLevelIndex = level4Index; }
-
+    public void selectLevel1() {
+        selectedLevelIndex = level1Index;
+        AudioManager.Instance.PlaySFX(selectionSFX);
+    }
+    public void selectLevel2() {
+        selectedLevelIndex = level2Index;
+        AudioManager.Instance.PlaySFX(selectionSFX);
+    }
+    public void selectLevel3() {
+        selectedLevelIndex = level3Index;
+        AudioManager.Instance.PlaySFX(selectionSFX);
+    }
+    public void selectLevel4() {
+        selectedLevelIndex = level4Index;
+        AudioManager.Instance.PlaySFX(selectionSFX);
+    }
 }
