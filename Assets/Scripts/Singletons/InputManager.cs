@@ -125,9 +125,18 @@ public class InputManager : MonoBehaviour
                 {
                     // Debug.Log("raycast ok");
 
+                    Flag flag = hit.collider.GetComponent<Flag>();
                     Unit touchedUnit = hit.collider.GetComponent<Unit>();
 
-                    if (touchedUnit != null)
+                    if (flag != null)
+                    {
+                        foreach (Unit unit in GlobalVariables.selectedUnits)
+                        {
+                            unit.stateController.SwitchMovePosition(hit.transform.position);
+                        }
+                    }
+
+                    else if (touchedUnit != null)
                     {
                         foreach (Unit unit in GlobalVariables.selectedUnits)
                         {

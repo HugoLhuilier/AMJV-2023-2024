@@ -18,9 +18,13 @@ public class Unit : Entity
     [SerializeField] GameObject selectionAura;
     public bool isDisplayableInOverlay;
 
+    public bool isKing {  get; private set; }
+
     public override void Start()
     {
         base.Start();
+
+        isKing = false;
 
         moveable = GetComponent<Moveable>();
         specialCapacity = GetComponent<SpecialCapacity>();
@@ -39,6 +43,9 @@ public class Unit : Entity
             GlobalVariables.attackUnits.Remove(this);
         else
             GlobalVariables.defenseUnits.Remove(this);
+
+        if (isKing || GlobalVariables.attackUnits.Count == 0)
+            GameManager.Instance.LoseGame();
     }
 
     public void getSelected()
@@ -49,5 +56,15 @@ public class Unit : Entity
     public void getUnselected()
     {
         selectionAura.SetActive(false);
+    }
+
+    public void BecomeKing()
+    {
+        isKing = true;
+
+        Debug.Log(GameManager.Instance);
+
+        GameObject flag = Instantiate(GameManager.Instance.carriedFlag, transform);
+        flag.transform.Translate(3 * Vector3.up);
     }
 }
