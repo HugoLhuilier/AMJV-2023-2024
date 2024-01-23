@@ -26,7 +26,7 @@ public class TestCaCCapacity : BasicCapacity
             if (!team.isSameTeam(hit.gameObject.GetComponent<Team>()))
             {
                 hit.gameObject.GetComponent<Life>()?.GetDamages(damages);
-                Debug.Log(hit.GetComponent<Rigidbody>());
+                // Debug.Log(hit.GetComponent<Rigidbody>());
                 hit.GetComponent<Rigidbody>()?.AddForce(knockback * (hit.transform.position - transform.position).normalized, ForceMode.Impulse);
             }
         }
