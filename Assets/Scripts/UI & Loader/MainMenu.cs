@@ -16,9 +16,14 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject optionMenu;
     [SerializeField] GameObject levelSelectionMenu;
     [SerializeField] GameObject pauseMenu;
+    [SerializeField] GameObject victoryScreen;
+    [SerializeField] GameObject defeatScreen;
     [SerializeField] GameObject selectionSytem;
     [SerializeField] GameObject overlay;
+    [SerializeField] Camera camera_m;
+    [SerializeField] Vector3 initialCameraPosition;
     private int currentLevelIndex;
+    private int selectedLevelIndex;
 
     void Update()
     {
@@ -37,6 +42,7 @@ public class MainMenu : MonoBehaviour
     public void PauseMenu()
     {
         Debug.Log("Pause");
+        Time.timeScale = 0;
         menu.SetActive(true);
         pauseMenu.SetActive(true);
     }
@@ -64,26 +70,59 @@ public class MainMenu : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync(currentLevelIndex);
         pauseMenu.SetActive(false);
+        victoryScreen.SetActive(false);
+        defeatScreen.SetActive(false);
         mainMenu.SetActive(true);
     }
 
     public void Resume()
     {
+        Time.timeScale = 1;
         menu.SetActive(false);
         pauseMenu.SetActive(false);
     }
 
     public void LoadLevel(int levelIndex)
     {
+        Time.timeScale = 1;
         menu.SetActive(false);
         levelSelectionMenu.SetActive(false);
         SceneManager.LoadScene(levelIndex, LoadSceneMode.Additive);
         selectionSytem.SetActive(true);
         overlay.SetActive(true);
+        camera_m.transform.position = initialCameraPosition;
     }
 
-    public void loadLevel1() { LoadLevel(level1Index); currentLevelIndex = level1Index; }
-    public void loadLevel2() { LoadLevel(level2Index); currentLevelIndex = level2Index; }
-    public void loadLevel3() { LoadLevel(level3Index); currentLevelIndex = level3Index; }
-    public void loadLevel4() { LoadLevel(level4Index); currentLevelIndex = level4Index; }
+    public void LoadSelectedLevel()
+    {
+        LoadLevel(selectedLevelIndex);
+    }
+
+    public void selectLevel1() { selectedLevelIndex = level1Index;  }
+    public void selectLevel2() { selectedLevelIndex = level2Index; }
+    public void selectLevel3() { selectedLevelIndex = level3Index; }
+    public void selectLevel4() { selectedLevelIndex = level4Index; }
+
+    public void NextLevel()
+    {
+        if (currentLevelIndex == 4)
+        {
+            Abort();
+        } else
+        {
+            LoadLevel(currentLevelIndex + 1);
+        }
+    }
+
+    public void VictoryScreen()
+    {
+        Time.timeScale = 0;
+        victoryScreen.SetActive(true);
+    }
+
+    public void DefeatScreen()
+    {
+        Time.timeScale = 0;
+        defeatScreen.SetActive(true);
+    }
 }

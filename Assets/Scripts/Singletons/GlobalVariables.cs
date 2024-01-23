@@ -24,13 +24,16 @@ public class GlobalVariables : MonoBehaviour
     public static void AddSelectedUnit(Unit unit)
     {
         selectedUnits.Add(unit);
-
+        unit.getSelected();
         // Debug.Log(selectedUnits.Count);
     }
 
 
     public static void ResetSelectedUnits()
     {
+        foreach (Unit unit in selectedUnits) {
+            unit.getUnselected();
+        }
         selectedUnits = new HashSet<Unit>();
     }
 

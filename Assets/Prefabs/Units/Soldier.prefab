@@ -49,7 +49,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2567003094448429398}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 2
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -83,6 +83,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5200a1efd7cb7de449aff289fe0e2582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectionAura: {fileID: 0}
+  isDisplayableInOverlay: 0
 --- !u!114 &9027432949632759108
 MonoBehaviour:
   m_ObjectHideFlags: 0
