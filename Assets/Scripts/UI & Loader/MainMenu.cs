@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] int mainMenuIndex = 0;
-    [SerializeField] int toolsIndex = 1;
     [SerializeField] int level1Index = 2;
     [SerializeField] int level2Index = 3;
     [SerializeField] int level3Index = 4;
@@ -22,6 +24,7 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject overlay;
     [SerializeField] Camera camera_m;
     [SerializeField] Vector3 initialCameraPosition;
+    [SerializeField] Timer timer;
     private int currentLevelIndex;
     private int selectedLevelIndex;
 
@@ -31,58 +34,60 @@ public class MainMenu : MonoBehaviour
             Debug.Log("Pausing");
             PauseMenu();
         }
+        Debug.Log(Time.timeScale);
     }
 
-    public void ExitGame()
+    protected void ExitGame()
     {
         Debug.Log("Quiting");
         Application.Quit();
     }
 
-    public void PauseMenu()
+    protected void PauseMenu()
     {
         Debug.Log("Pause");
+        Debug.Log(currentLevelIndex);
         Time.timeScale = 0;
         menu.SetActive(true);
         pauseMenu.SetActive(true);
     }
 
-    public void LevelSelectionMenu()
+    protected void LevelSelectionMenu()
     {
         mainMenu.SetActive(false);
         levelSelectionMenu.SetActive(true);
     }
 
-    public void OptionsMenu()
+    protected void OptionsMenu()
     {
         mainMenu.SetActive(false);
         optionMenu.SetActive(true);
     }
 
-    public void Back()
+    protected void Back()
     {
         levelSelectionMenu.SetActive(false);
         optionMenu.SetActive(false);
         mainMenu.SetActive(true);
     }
 
-    public void Abort()
+    protected void Abort()
     {
-        SceneManager.UnloadSceneAsync(currentLevelIndex);
         pauseMenu.SetActive(false);
+        SceneManager.UnloadSceneAsync(currentLevelIndex);
+        mainMenu.SetActive(true);
         victoryScreen.SetActive(false);
         defeatScreen.SetActive(false);
-        mainMenu.SetActive(true);
     }
 
-    public void Resume()
+    protected void Resume()
     {
         Time.timeScale = 1;
         menu.SetActive(false);
         pauseMenu.SetActive(false);
     }
 
-    public void LoadLevel(int levelIndex)
+    protected void LoadLevel(int levelIndex)
     {
         Time.timeScale = 1;
         menu.SetActive(false);
@@ -91,19 +96,28 @@ public class MainMenu : MonoBehaviour
         selectionSytem.SetActive(true);
         overlay.SetActive(true);
         camera_m.transform.position = initialCameraPosition;
+        currentLevelIndex = levelIndex;
+        timer.timer = 0;
     }
 
-    public void LoadSelectedLevel()
+    protected void LoadSelectedLevel()
     {
         LoadLevel(selectedLevelIndex);
+        Debug.Log(selectedLevelIndex);
     }
 
-    public void selectLevel1() { selectedLevelIndex = level1Index;  }
-    public void selectLevel2() { selectedLevelIndex = level2Index; }
-    public void selectLevel3() { selectedLevelIndex = level3Index; }
-    public void selectLevel4() { selectedLevelIndex = level4Index; }
+    protected void Go()
+    {
+        Debug.Log("Go");
+        LoadSelectedLevel();
+    }
 
-    public void NextLevel()
+    protected void selectLevel1() { selectedLevelIndex = level1Index;  }
+    protected void selectLevel2() { selectedLevelIndex = level2Index; }
+    protected void selectLevel3() { selectedLevelIndex = level3Index; }
+    protected void selectLevel4() { selectedLevelIndex = level4Index; }
+
+    protected void NextLevel()
     {
         if (currentLevelIndex == 4)
         {
@@ -125,4 +139,9 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 0;
         defeatScreen.SetActive(true);
     }
+
+ /*   protected void changeGraphicsSetting()
+    {
+        EditorGraphicsSettings.SetTierSettings(BuildTargetGroup.Standalone, GraphicsTier.Tier1, TierSettings.standardShaderQuality);
+    }*/
 }
