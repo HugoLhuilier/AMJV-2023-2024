@@ -14,6 +14,8 @@ public class Life : MonoBehaviour
     private bool invincible = false;
     public int life { get; private set; }
 
+    private float acidCooldown = 0;
+
     private void Start()
     {
         life = maxLife;
@@ -35,7 +37,7 @@ public class Life : MonoBehaviour
         }
 
 
-        // Debug.Log("AIIIEUUUUH IL ME RESTE " + life + " PONTS DE VIE");
+        Debug.Log("AIIIEUUUUH IL ME RESTE " + life + " PONTS DE VIE");
 
         if (life <= 0)
         {
@@ -61,5 +63,16 @@ public class Life : MonoBehaviour
     public void NotInivincibleAnymore()
     {
         invincible = false;
+    }
+
+    public void StaysInAcid(int damages)
+    {
+        acidCooldown += Time.fixedDeltaTime;
+
+        if (acidCooldown > 1)
+        {
+            acidCooldown -= 1;
+            GetDamages(damages);
+        }
     }
 }

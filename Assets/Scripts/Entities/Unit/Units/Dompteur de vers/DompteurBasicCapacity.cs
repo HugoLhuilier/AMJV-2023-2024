@@ -7,8 +7,10 @@ public class DompteurBasicCapacity : BasicCapacity
     [SerializeField] private GameObject meatPiece;
     [SerializeField] private Transform throwPos;
 
-    public override void useCapacity(Transform position)
+    public override void useCapacity(Vector3 position)
     {
-        MeatPiece.ThrowMeat(meatPiece, throwPos, position.position);
+        transform.LookAt(position);
+
+        MeatPiece.ThrowMeat(meatPiece, throwPos, position);
     }
 }

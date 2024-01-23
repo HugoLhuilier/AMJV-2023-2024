@@ -35,6 +35,9 @@ public class BigWorm : MonoBehaviour
             return;
         }
 
+        if (other.GetComponent<BigWorm>())
+            return;
+
         Life life = other.GetComponent<Life>();
 
         if (life != null )

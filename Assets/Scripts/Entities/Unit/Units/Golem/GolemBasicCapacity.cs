@@ -14,8 +14,8 @@ public class GolemBasicCapacity : BasicCapacity
         team = GetComponent<Team>();
     }
 
-    public override void useCapacity(Transform position)
+    public override void useCapacity(Vector3 position)
     {
-        ThrowingRock.InstantiateThrowingRock(throwingRock, shootPoint, position.position, team);
+        ThrowingRock.InstantiateThrowingRock(throwingRock, shootPoint, position, team);
     }
 }

@@ -13,10 +13,10 @@ public class BeetleBasicCapacity : BasicCapacity
         team = GetComponent<Team>();
     }
 
-    public override void useCapacity(Transform position)
+    public override void useCapacity(Vector3 position)
     {
         // Debug.Log("Position : " + position.position);
-        Collider[] hits = Physics.OverlapSphere(position.position, attackRadius, GlobalVariables.unitMask);
+        Collider[] hits = Physics.OverlapSphere(position, attackRadius, GlobalVariables.unitMask);
 
         foreach (Collider hit in hits)
         {

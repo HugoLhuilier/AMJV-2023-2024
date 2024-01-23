@@ -15,7 +15,7 @@ public class TireurBasicCapacity : BasicCapacity
         team = GetComponent<Team>();
     }
 
-    public override void useCapacity(Transform position)
+    public override void useCapacity(Vector3 position)
     {
         Bullet.InstantiateBullet(bullet, shootPoint, team, bulletDamages);
     }

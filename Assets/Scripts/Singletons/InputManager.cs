@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms;
 
 public class InputManager : MonoBehaviour
 {
@@ -9,8 +10,8 @@ public class InputManager : MonoBehaviour
 
     [SerializeField] private UnitSelection unitSelection;
     [SerializeField] private GameObject selectionSphere;
-    [SerializeField] private float groundHeight;
 
+    private DompteurBasicCapacity meatThrower;
     private GameObject activeSelectionSphere;
     private SpecialCapacity pendingSpecialCapacity = null;
     private Transform specialPos = null;
@@ -43,9 +44,10 @@ public class InputManager : MonoBehaviour
             {
                 DompteurBasicCapacity cap = unit.gameObject.GetComponent<DompteurBasicCapacity>();
 
-                if (cap != null)
+                if (cap != null && cap.isReady)
                 {
-
+                    StartMeatAction(cap);
+                    return;
                 }
             }
         }
@@ -87,7 +89,7 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetMouseButtonDown (1))
         {
-            if (pendingSpecialCapacity != null)  // Execute pending special action if cursor in range
+            if (pendingSpecialCapacity != null)
             {
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -95,6 +97,19 @@ public class InputManager : MonoBehaviour
                 if (Physics.Raycast(ray, out hit) && Vector3.Distance(specialPos.position, hit.point) < specialRange)
                 {
                     ExecuteActionPosition(hit.point);
+                }
+                else
+                    AbortActionPosition();
+            }
+
+            else if (meatThrower != null)  // Execute pending special action if cursor in range
+            {
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out hit) && Vector3.Distance(meatThrower.transform.position, hit.point) < meatThrower.range)
+                {
+                    ExecuteMeatAction(hit.point);
                 }
                 else
                     AbortActionPosition();
@@ -109,15 +124,25 @@ public class InputManager : MonoBehaviour
                 if(Physics.Raycast (ray, out hit))
                 {
                     // Debug.Log("raycast ok");
-                    if (hit.collider.gameObject.GetComponent<Unit>() != null)
+
+                    Unit touchedUnit = hit.collider.GetComponent<Unit>();
+
+                    if (touchedUnit != null)
                     {
                         foreach (Unit unit in GlobalVariables.selectedUnits)
                         {
                             // Debug.Log(unit.stateController);
 
-                            unit.stateController.specialCapacitySelected = false;
-                            // unit.stateController.range = unit.gameObject.GetComponent<BasicCapacity>().range;
-                            unit.stateController.SwitchMoveCapacity(hit.transform);
+                            BasicCapacity basic = unit.GetComponent<BasicCapacity>();
+
+                            if (unit.team.isSameTeam(touchedUnit.team) == basic.forAllies)
+                            {
+                                unit.stateController.specialCapacitySelected = false;
+                                // unit.stateController.range = unit.gameObject.GetComponent<BasicCapacity>().range;
+                                unit.stateController.SwitchMoveCapacity(hit.transform);
+                            }
+                            else
+                                unit.stateController.SwitchMovePosition(hit.point);
                         }
                     }
                     else
@@ -143,17 +168,16 @@ public class InputManager : MonoBehaviour
 
         if (center != null)
         {
-            activeSelectionSphere = Instantiate(selectionSphere, center);
-            activeSelectionSphere.transform.position = new Vector3(activeSelectionSphere.transform.position.x, groundHeight, activeSelectionSphere.transform.position.z);
-            activeSelectionSphere.transform.localScale = 2 * range * new Vector3(1, 0, 1) + 0.1f * Vector3.up;
+            ShowSelectionArea(center, range);
         }
     }
 
     public void StopActionPosition()
     {
         pendingSpecialCapacity = null;
+        meatThrower = null;
 
-        Destroy(activeSelectionSphere);
+        HideSelectionArea();
     }
 
     public void ExecuteActionPosition(Vector3 pos)
@@ -171,7 +195,34 @@ public class InputManager : MonoBehaviour
         if (pendingSpecialCapacity != null)
         {
             pendingSpecialCapacity.ResetCooldown();
-            StopActionPosition();
         }
+
+        StopActionPosition();
+    }
+
+    public void StartMeatAction(DompteurBasicCapacity cap)
+    {
+        meatThrower = cap;
+
+        ShowSelectionArea(cap.transform, cap.range);
+    }
+
+    public void ExecuteMeatAction(Vector3 pos)
+    {
+        meatThrower.useCapacity(pos);
+
+        StopActionPosition();
+    }
+
+    public void ShowSelectionArea(Transform center, float range)
+    {
+        activeSelectionSphere = Instantiate(selectionSphere, center);
+        activeSelectionSphere.transform.position = new Vector3(activeSelectionSphere.transform.position.x, GlobalVariables.groundHeight, activeSelectionSphere.transform.position.z);
+        activeSelectionSphere.transform.localScale = 2 * range * new Vector3(1, 0, 1) + 0.1f * Vector3.up;
+    }
+
+    public void HideSelectionArea()
+    {
+        Destroy(activeSelectionSphere);
     }
 }

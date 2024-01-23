@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class GlobalVariables : MonoBehaviour
@@ -11,12 +12,17 @@ public class GlobalVariables : MonoBehaviour
     public static HashSet<Unit> selectedUnits = new HashSet<Unit>();
 
     public static LayerMask unitMask;
+    public static int groundMask = 6;
+
+    public static float groundHeight;
 
     [SerializeField] private LayerMask defUnitMask;
+    [SerializeField] private float defGroundHeight;
 
     private void Start()
     {
         unitMask = defUnitMask;
+        groundHeight = defGroundHeight;
 
         // DebugActions(); // /!\ SEULEMENT POUR LE DEBUG /!\ \\
     }

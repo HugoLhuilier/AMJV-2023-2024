@@ -5,10 +5,16 @@ using UnityEngine;
 public abstract class BasicCapacity : MonoBehaviour
 {
     [SerializeField] protected float cooldownTime;
-    [SerializeField] public float range;
+    public bool forAllies = false;
+    public float range;
 
     private float cooldownState = 0;
-    private bool isReady = true;
+    public bool isReady { get; private set; }
+
+    private void Start()
+    {
+        isReady = true;
+    }
 
     // Update is called once per frame
     void Update()
@@ -31,9 +37,9 @@ public abstract class BasicCapacity : MonoBehaviour
             isReady = false;
             cooldownState = cooldownTime;
 
-            useCapacity(position);
+            useCapacity(position.position);
         }
     }
 
-    abstract public void useCapacity(Transform position);
+    abstract public void useCapacity(Vector3 position);
 }
