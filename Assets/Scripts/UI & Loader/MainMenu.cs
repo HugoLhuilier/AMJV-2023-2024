@@ -78,6 +78,8 @@ public class MainMenu : MonoBehaviour
         mainMenu.SetActive(true);
         victoryScreen.SetActive(false);
         defeatScreen.SetActive(false);
+        victoryScreen.SetActive(false);
+        defeatScreen.SetActive(false);
     }
 
     protected void Resume()
