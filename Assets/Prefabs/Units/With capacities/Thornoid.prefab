@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 9128907295185823993}
   - component: {fileID: 6601009569738080132}
   m_Layer: 8
-  m_Name: Unit asset
+  m_Name: Mini Golem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -459,7 +459,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5722033240485994481}
   m_Layer: 0
-  m_Name: "Ron\xE7o\xEFde"
+  m_Name: Thornoid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

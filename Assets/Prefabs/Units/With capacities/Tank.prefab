@@ -73,7 +73,7 @@ GameObject:
   - component: {fileID: 8630047736370846107}
   - component: {fileID: 3902191694912571899}
   - component: {fileID: 3105435642373602618}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Selection Aura
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2238730063503684579}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ExplosionShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4580299873526173051}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShootPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -216,7 +216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5722033240485994481}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -248,6 +248,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1272715479923797752}
     m_Modifications:
+    - target: {fileID: 3053057066482835445, guid: 1a9d5cfb9d5e8a943a79cf964693cc98, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4385584288006161484, guid: 1a9d5cfb9d5e8a943a79cf964693cc98, type: 3}
       propertyPath: unit
       value: 
@@ -328,6 +332,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health Bar (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7633051700872638710, guid: 1a9d5cfb9d5e8a943a79cf964693cc98, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a9d5cfb9d5e8a943a79cf964693cc98, type: 3}
 --- !u!1001 &8714207071034845540
@@ -337,6 +345,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5722033240485994481}
     m_Modifications:
+    - target: {fileID: 169700622502949834, guid: ad0e56041308c8c4e953976cca3a9540, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 509438948624643694, guid: ad0e56041308c8c4e953976cca3a9540, type: 3}
       propertyPath: m_Size.x
       value: 3.3747501
@@ -353,9 +365,21 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.07049751
       objectReference: {fileID: 0}
+    - target: {fileID: 1423812464027258409, guid: ad0e56041308c8c4e953976cca3a9540, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2319574149005864736, guid: ad0e56041308c8c4e953976cca3a9540, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4645119348994701149, guid: ad0e56041308c8c4e953976cca3a9540, type: 3}
       propertyPath: m_Name
       value: Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645119348994701149, guid: ad0e56041308c8c4e953976cca3a9540, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4975547046189417376, guid: ad0e56041308c8c4e953976cca3a9540, type: 3}
       propertyPath: m_LocalPosition.y
@@ -388,6 +412,10 @@ PrefabInstance:
     - target: {fileID: 5630757990213272712, guid: ad0e56041308c8c4e953976cca3a9540, type: 3}
       propertyPath: m_AngularDrag
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7242760853555276010, guid: ad0e56041308c8c4e953976cca3a9540, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7585894474375825308, guid: ad0e56041308c8c4e953976cca3a9540, type: 3}
       propertyPath: m_RootOrder
@@ -432,6 +460,10 @@ PrefabInstance:
     - target: {fileID: 7585894474375825308, guid: ad0e56041308c8c4e953976cca3a9540, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8311367229309170099, guid: ad0e56041308c8c4e953976cca3a9540, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad0e56041308c8c4e953976cca3a9540, type: 3}
@@ -492,7 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716538f5d0c7a7a48b55ca0568781f69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLife: 200
+  maxLife: 100
   shield: 4
 --- !u!114 &4202478830078768813
 MonoBehaviour:

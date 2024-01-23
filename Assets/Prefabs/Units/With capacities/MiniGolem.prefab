@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 8383283669938880613}
   - component: {fileID: 5500650341481186305}
   m_Layer: 8
-  m_Name: Unit asset
+  m_Name: Mini Golem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

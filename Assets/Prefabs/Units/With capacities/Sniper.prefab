@@ -186,7 +186,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5722033240485994481}
   m_Layer: 0
-  m_Name: "Tireur d'\xE9lite"
+  m_Name: Sniper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

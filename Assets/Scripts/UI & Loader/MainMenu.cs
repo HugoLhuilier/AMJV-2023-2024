@@ -95,25 +95,6 @@ public class MainMenu : MonoBehaviour
         GameManager.Instance.LoadLevel();
         GameManager.Instance.StartGame();
     }
-/*
-    public void NextLevel()
-    {
-        *//*        Debug.Log(currentLevelIndex);*//*
-        Debug.Log("Loading next level");
-        GameManager.Instance.isQuitting = true;
-        SceneManager.UnloadSceneAsync(currentLevelIndex);
-        Debug.Log(Time.timeScale);
-        if (currentLevelIndex == 4)
-        {
-            Abort();
-        } else
-        {
-            currentLevelIndex++;
-            LoadLevel(currentLevelIndex);
-        }
-        Debug.Log(Time.timeScale);
-        GameManager.Instance.StartGame();
-    }*/
 
     protected void NextLevel()
     {

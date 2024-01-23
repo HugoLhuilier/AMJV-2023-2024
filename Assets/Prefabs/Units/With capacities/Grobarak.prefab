@@ -167,7 +167,7 @@ GameObject:
   - component: {fileID: 5248182220767580241}
   - component: {fileID: 127329159085307279}
   m_Layer: 8
-  m_Name: Unit asset
+  m_Name: Grobarak
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

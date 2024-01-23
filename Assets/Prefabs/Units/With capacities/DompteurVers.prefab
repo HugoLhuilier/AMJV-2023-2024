@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 5232612481491835041}
   - component: {fileID: 2652685955048905891}
   m_Layer: 8
-  m_Name: Unit asset
+  m_Name: Worm tamer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

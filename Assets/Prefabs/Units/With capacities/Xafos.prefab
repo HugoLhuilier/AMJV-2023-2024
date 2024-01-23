@@ -199,7 +199,7 @@ GameObject:
   - component: {fileID: 5896806637581009492}
   - component: {fileID: 3041474747103070072}
   m_Layer: 8
-  m_Name: Unit asset
+  m_Name: Xafos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
