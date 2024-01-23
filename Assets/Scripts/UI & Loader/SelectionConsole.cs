@@ -75,7 +75,7 @@ namespace TMPro.Examples
 
                 textComponent.maxVisibleCharacters = visibleCount; // How many characters should TextMeshPro display?
 
-                visibleCount += 1;
+                visibleCount += 2;
                 yield return new WaitForSeconds(charatersTime);
             }
         }

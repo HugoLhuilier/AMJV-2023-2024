@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 998266523851543374}
   - component: {fileID: 6967769688859411844}
   - component: {fileID: 2612305870560214588}
+  - component: {fileID: 8277045514400419800}
   m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -97,6 +98,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!64 &8277045514400419800
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4630203790454189951}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &4948573667275245017
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,6 +124,7 @@ GameObject:
   - component: {fileID: 1212999180028889693}
   - component: {fileID: 4807260527381585159}
   - component: {fileID: 8519327350745867054}
+  - component: {fileID: 2382554368805079108}
   m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -194,6 +210,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!64 &2382554368805079108
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4948573667275245017}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &5381221531619604065
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +236,7 @@ GameObject:
   - component: {fileID: 2085992685792079626}
   - component: {fileID: 3064848317049883685}
   - component: {fileID: 6320090003621267164}
+  - component: {fileID: 7776099957811349218}
   m_Layer: 6
   m_Name: Cube
   m_TagString: Untagged
@@ -291,6 +322,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!64 &7776099957811349218
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5381221531619604065}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &6580554777009268763
 GameObject:
   m_ObjectHideFlags: 0

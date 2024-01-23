@@ -91,7 +91,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1970924071538315418}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4291748478414625520
 GameObject:
@@ -122,7 +122,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1970924071538315418}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7185287191061806070
 GameObject:
@@ -196,7 +196,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2789413438898050492}
+  - {fileID: 5679284331005536000}
   - {fileID: 4229675086874386976}
+  - {fileID: 551367607546974719}
   - {fileID: 458007661226122955}
   m_Father: {fileID: 5722033240485994481}
   m_RootOrder: 2
@@ -384,6 +386,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 15
+  forAllies: 0
   range: 20
   meatPiece: {fileID: 2024193775487021118, guid: a5c34c32b64adbd47a67307e15ba4373, type: 3}
   throwPos: {fileID: 2789413438898050492}
@@ -473,7 +476,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1970924071538315418}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1097369291658427801
 MeshFilter:
@@ -538,7 +541,7 @@ PrefabInstance:
       objectReference: {fileID: 8399459691904049369}
     - target: {fileID: 4385584288006161484, guid: 1a9d5cfb9d5e8a943a79cf964693cc98, type: 3}
       propertyPath: color
-      value: <#2fff00>
+      value: <#00ffff>
       objectReference: {fileID: 0}
     - target: {fileID: 4889749428711748975, guid: 1a9d5cfb9d5e8a943a79cf964693cc98, type: 3}
       propertyPath: m_RootOrder

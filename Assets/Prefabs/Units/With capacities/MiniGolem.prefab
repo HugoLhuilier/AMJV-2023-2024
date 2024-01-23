@@ -292,7 +292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11de138315d10c47bd9871053013e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAttacker: 1
+  isAttacker: 0
 --- !u!195 &7526676205346155816
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -372,9 +372,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 1
+  forAllies: 0
   range: 3
   attackRadius: 1
   damages: 2
+  knockback: 0
 --- !u!1 &8568739396275102047
 GameObject:
   m_ObjectHideFlags: 0

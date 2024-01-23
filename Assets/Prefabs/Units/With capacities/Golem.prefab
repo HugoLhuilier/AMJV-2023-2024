@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 8383283669938880613}
   - component: {fileID: 2220232337201433466}
   - component: {fileID: 5253081804498794482}
+  - component: {fileID: 8822644628026257904}
   m_Layer: 8
   m_Name: Unit asset
   m_TagString: Untagged
@@ -325,7 +326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f11de138315d10c47bd9871053013e22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAttacker: 1
+  isAttacker: 0
 --- !u!195 &7526676205346155816
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -405,6 +406,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 5
+  forAllies: 0
   range: 20
   throwingRock: {fileID: 585461690658971164, guid: 06950398483ae374eb874e8d470f7162, type: 3}
   shootPoint: {fileID: 4898830088836693724}
@@ -426,6 +428,24 @@ MonoBehaviour:
   spawnDist: 2
   miniGolem: {fileID: 8568739396275102047, guid: 4cdbeadc6dfa46a4782b5ac1da482221, type: 3}
   nbMiniGolems: 5
+--- !u!114 &8822644628026257904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8399459691904049369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afc114fed041d5459f6d272b60d4a67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  patrolPositions:
+  - {fileID: 8084470460705871565}
+  - {fileID: 545331762776912665}
+  waitPositionTime: 1
+  visionRange: 10
+  framesTargetCheck: 10
 --- !u!1 &8568739396275102047
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +493,7 @@ PrefabInstance:
       objectReference: {fileID: 8399459691904049369}
     - target: {fileID: 4385584288006161484, guid: 1a9d5cfb9d5e8a943a79cf964693cc98, type: 3}
       propertyPath: color
-      value: <#2fff00>
+      value: <#ff584d>
       objectReference: {fileID: 0}
     - target: {fileID: 4889749428711748975, guid: 1a9d5cfb9d5e8a943a79cf964693cc98, type: 3}
       propertyPath: m_RootOrder
@@ -497,7 +517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4889749428711748975, guid: 1a9d5cfb9d5e8a943a79cf964693cc98, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4889749428711748975, guid: 1a9d5cfb9d5e8a943a79cf964693cc98, type: 3}
       propertyPath: m_LocalPosition.z

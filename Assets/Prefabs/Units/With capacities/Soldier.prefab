@@ -242,6 +242,18 @@ PrefabInstance:
       propertyPath: isAttacker
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1837583414637675408, guid: 331a2a6be9de0254b98bc8675d6ba023, type: 3}
+      propertyPath: m_Radius
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837583414637675408, guid: 331a2a6be9de0254b98bc8675d6ba023, type: 3}
+      propertyPath: m_Acceleration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1837583414637675408, guid: 331a2a6be9de0254b98bc8675d6ba023, type: 3}
+      propertyPath: m_StoppingDistance
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2039005586864316789, guid: 331a2a6be9de0254b98bc8675d6ba023, type: 3}
       propertyPath: selectionAura
       value: 
@@ -320,9 +332,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 1
+  forAllies: 0
   range: 3
   attackRadius: 1
   damages: 5
+  knockback: 0
 --- !u!1 &9090848036980421966 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3269937554066785277, guid: 331a2a6be9de0254b98bc8675d6ba023, type: 3}
@@ -341,7 +355,7 @@ PrefabInstance:
       objectReference: {fileID: 8131208754952105957}
     - target: {fileID: 4385584288006161484, guid: 1a9d5cfb9d5e8a943a79cf964693cc98, type: 3}
       propertyPath: color
-      value: <#2fff00>
+      value: <#00ffff>
       objectReference: {fileID: 0}
     - target: {fileID: 4889749428711748975, guid: 1a9d5cfb9d5e8a943a79cf964693cc98, type: 3}
       propertyPath: m_RootOrder
