@@ -44,7 +44,7 @@ public class Unit : Entity
         else
             GlobalVariables.defenseUnits.Remove(this);
 
-        if (isKing || GlobalVariables.attackUnits.Count == 0)
+        if ((isKing || GlobalVariables.attackUnits.Count == 0) && GameManager.Instance.isQuitting)
             GameManager.Instance.LoseGame();
     }
 

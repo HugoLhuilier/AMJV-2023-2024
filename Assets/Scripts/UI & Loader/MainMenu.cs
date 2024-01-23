@@ -9,10 +9,6 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] int mainMenuIndex = 0;
-    [SerializeField] int level1Index = 2;
-    [SerializeField] int level2Index = 3;
-    [SerializeField] int level3Index = 4;
-    [SerializeField] int level4Index = 5;
     [SerializeField] GameObject menu;
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject optionMenu;
@@ -25,8 +21,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] Camera camera_m;
     [SerializeField] Vector3 initialCameraPosition;
     [SerializeField] Timer timer;
-    private int currentLevelIndex;
-    private int selectedLevelIndex;
 
     void Update()
     {
@@ -34,7 +28,7 @@ public class MainMenu : MonoBehaviour
             Debug.Log("Pausing");
             PauseMenu();
         }
-        // Debug.Log(Time.timeScale);
+/*        Debug.Log(Time.timeScale);*/
     }
 
     protected void ExitGame()
@@ -45,11 +39,13 @@ public class MainMenu : MonoBehaviour
 
     protected void PauseMenu()
     {
-        Debug.Log("Pause");
-        Debug.Log(currentLevelIndex);
-        Time.timeScale = 0;
-        menu.SetActive(true);
-        pauseMenu.SetActive(true);
+        if (menu.activeSelf == false)
+        {
+            Debug.Log("Pause");
+            Time.timeScale = 0;
+            menu.SetActive(true);
+            pauseMenu.SetActive(true);
+        }
     }
 
     protected void LevelSelectionMenu()
@@ -73,13 +69,12 @@ public class MainMenu : MonoBehaviour
 
     protected void Abort()
     {
+        GameManager.Instance.isQuitting = true;
+        GameManager.Instance.UnloadLevel();
+        victoryScreen.SetActive(false);
+        defeatScreen.SetActive(false);
         pauseMenu.SetActive(false);
-        SceneManager.UnloadSceneAsync(currentLevelIndex);
         mainMenu.SetActive(true);
-        victoryScreen.SetActive(false);
-        defeatScreen.SetActive(false);
-        victoryScreen.SetActive(false);
-        defeatScreen.SetActive(false);
     }
 
     protected void Resume()
@@ -89,62 +84,77 @@ public class MainMenu : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
-    protected void LoadLevel(int levelIndex)
-    {
-        Time.timeScale = 1;
-        menu.SetActive(false);
-        levelSelectionMenu.SetActive(false);
-        SceneManager.LoadScene(levelIndex, LoadSceneMode.Additive);
-        selectionSytem.SetActive(true);
-        overlay.SetActive(true);
-        camera_m.transform.position = initialCameraPosition;
-        currentLevelIndex = levelIndex;
-        timer.timer = 0;
-    }
-
-    protected void LoadSelectedLevel()
-    {
-        LoadLevel(selectedLevelIndex);
-        Debug.Log(selectedLevelIndex);
-    }
-
     protected void Go()
     {
-        // Debug.Log("Go");
-        LoadSelectedLevel();
+        levelSelectionMenu.SetActive(false);
+        menu.SetActive(false);
+        overlay.SetActive(true);
+        selectionSytem.SetActive(true);
+        camera_m.transform.position = initialCameraPosition;
+        timer.timer = 0;
+        GameManager.Instance.LoadLevel();
+        GameManager.Instance.StartGame();
     }
-
-    protected void selectLevel1() { selectedLevelIndex = level1Index;  }
-    protected void selectLevel2() { selectedLevelIndex = level2Index; }
-    protected void selectLevel3() { selectedLevelIndex = level3Index; }
-    protected void selectLevel4() { selectedLevelIndex = level4Index; }
-
-    protected void NextLevel()
+/*
+    public void NextLevel()
     {
+        *//*        Debug.Log(currentLevelIndex);*//*
+        Debug.Log("Loading next level");
+        GameManager.Instance.isQuitting = true;
+        SceneManager.UnloadSceneAsync(currentLevelIndex);
+        Debug.Log(Time.timeScale);
         if (currentLevelIndex == 4)
         {
             Abort();
         } else
         {
-            LoadLevel(currentLevelIndex + 1);
+            currentLevelIndex++;
+            LoadLevel(currentLevelIndex);
         }
+        Debug.Log(Time.timeScale);
+        GameManager.Instance.StartGame();
+    }*/
+
+    protected void NextLevel()
+    {
+        victoryScreen.SetActive(false);
+        menu.SetActive(false);
+        overlay.SetActive(true);
+        selectionSytem.SetActive(true);
+        camera_m.transform.position = initialCameraPosition;
+        timer.timer = 0;
+        Debug.Log("Loading next level");
+        Debug.Log(Time.timeScale);
+        GameManager.Instance.UnloadLevel();
+        Debug.Log(Time.timeScale);
+        GameManager.Instance.LoadNextLevel();
+        Debug.Log(Time.timeScale);
+        GameManager.Instance.isQuitting = true;
+        GameManager.Instance.StartGame();
+        Debug.Log(Time.timeScale);
     }
 
     public void VictoryScreen()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0.0f;
         menu.SetActive(true);
         victoryScreen.SetActive(true);
     }
 
     public void DefeatScreen()
     {
-        Time.timeScale = 0;
+        Time.timeScale = 0.0f;
         defeatScreen.SetActive(true);
     }
 
- /*   protected void changeGraphicsSetting()
-    {
-        EditorGraphicsSettings.SetTierSettings(BuildTargetGroup.Standalone, GraphicsTier.Tier1, TierSettings.standardShaderQuality);
-    }*/
+    protected void selectLevel1() { GameManager.Instance.selectLevel1();  }
+    protected void selectLevel2() { GameManager.Instance.selectLevel2(); }
+    protected void selectLevel3() { GameManager.Instance.selectLevel3(); }
+    protected void selectLevel4() { GameManager.Instance.selectLevel4(); }
+
+
+    /*   protected void changeGraphicsSetting()
+       {
+           EditorGraphicsSettings.SetTierSettings(BuildTargetGroup.Standalone, GraphicsTier.Tier1, TierSettings.standardShaderQuality);
+       }*/
 }
