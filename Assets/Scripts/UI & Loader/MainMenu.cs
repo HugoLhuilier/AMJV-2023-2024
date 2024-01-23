@@ -34,7 +34,7 @@ public class MainMenu : MonoBehaviour
             Debug.Log("Pausing");
             PauseMenu();
         }
-        Debug.Log(Time.timeScale);
+        // Debug.Log(Time.timeScale);
     }
 
     protected void ExitGame()
@@ -108,7 +108,7 @@ public class MainMenu : MonoBehaviour
 
     protected void Go()
     {
-        Debug.Log("Go");
+        // Debug.Log("Go");
         LoadSelectedLevel();
     }
 
@@ -131,6 +131,7 @@ public class MainMenu : MonoBehaviour
     public void VictoryScreen()
     {
         Time.timeScale = 0;
+        menu.SetActive(true);
         victoryScreen.SetActive(true);
     }
 

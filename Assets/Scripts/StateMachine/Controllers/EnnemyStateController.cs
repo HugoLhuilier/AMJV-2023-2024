@@ -22,6 +22,7 @@ public class EnnemyStateController : MonoBehaviour
     public float visionRange = 0;
     public int framesTargetCheck = 10;
     public Transform targetUnity { get; private set; }
+    public Unit unitTargetUnity { get; private set; }
 
     private Team teamComp;
 
@@ -65,6 +66,12 @@ public class EnnemyStateController : MonoBehaviour
 
         foreach (Collider c in hit)
         {
+            if (c.GetComponent<Unit>().isKing)
+            {
+                tmpTargetUnity = c.transform;
+                break;
+            }
+
             if (! c.gameObject.GetComponent<Team>().isSameTeam(teamComp))
             {
                 if (tmpTargetUnity == null || Vector3.Distance(transform.position, c.transform.position) < Vector3.Distance(transform.position, tmpTargetUnity.position))
@@ -81,9 +88,25 @@ public class EnnemyStateController : MonoBehaviour
         }
     }
 
+    public void CheckKingOnly()
+    {
+        Collider[] hit = Physics.OverlapSphere(transform.position, visionRange, GlobalVariables.unitMask);
+
+        foreach (Collider c in hit)
+        {
+            if (c.GetComponent<Unit>().isKing)
+            {
+                SetTargetUnityEnnemy(c.transform);
+                SwitchState(targetUnityState);
+                return;
+            }
+        }
+    }
+
 
     public void SetTargetUnityEnnemy(Transform targetTr)
     {
         targetUnity = targetTr;
+        unitTargetUnity = targetTr.GetComponent<Unit>();
     }
 }
