@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
-using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -80,6 +79,7 @@ public class MainMenu : MonoBehaviour
 
     protected void Abort()
     {
+        Debug.Log("abort");
         GameManager.Instance.isQuitting = true;
         GameManager.Instance.UnloadLevel();
         victoryScreen.SetActive(false);
@@ -114,21 +114,21 @@ public class MainMenu : MonoBehaviour
 
     protected void NextLevel()
     {
+        GameManager.Instance.isQuitting = true;
         victoryScreen.SetActive(false);
         menu.SetActive(false);
         overlay.SetActive(true);
         selectionSytem.SetActive(true);
         camera_m.transform.position = initialCameraPosition;
         timer.timer = 0;
-        Debug.Log("Loading next level");
-        Debug.Log(Time.timeScale);
+        // Debug.Log("Loading next level");
+        // Debug.Log(Time.timeScale);
         GameManager.Instance.UnloadLevel();
-        Debug.Log(Time.timeScale);
+        // Debug.Log(Time.timeScale);
         GameManager.Instance.LoadNextLevel();
-        Debug.Log(Time.timeScale);
-        GameManager.Instance.isQuitting = true;
+        // Debug.Log(Time.timeScale);
         GameManager.Instance.StartGame();
-        Debug.Log(Time.timeScale);
+        // Debug.Log(Time.timeScale);
         AudioManager.Instance.PlaySFX(goAudioClip);
     }
 
@@ -136,12 +136,15 @@ public class MainMenu : MonoBehaviour
     {
         Time.timeScale = 0.0f;
         menu.SetActive(true);
+        selectionSytem.SetActive(false);
         victoryScreen.SetActive(true);
     }
 
     public void DefeatScreen()
     {
         Time.timeScale = 0.0f;
+        menu.SetActive(true);
+        selectionSytem.SetActive(false);
         defeatScreen.SetActive(true);
     }
 

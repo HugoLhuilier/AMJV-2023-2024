@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -49,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
         if (!isQuitting)
         {
-            Debug.Log("False");
+            Debug.Log("Lose");
             isQuitting = true;
             menu.DefeatScreen();
         }
@@ -69,7 +68,7 @@ public class GameManager : MonoBehaviour
 
     public void UnloadLevel()
     {
-        SceneManager.UnloadSceneAsync(currentLevelIndex);
+        SceneManager.UnloadScene(currentLevelIndex);
     }
 
     public void selectLevel1() {

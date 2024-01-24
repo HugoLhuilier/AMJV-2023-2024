@@ -5,6 +5,7 @@ using UnityEngine;
 public class FloatingText : MonoBehaviour
 {
     [SerializeField] private float lifeTime = 1;
+    [SerializeField] private GameObject parent;
 
     private float timeLived = 0;
 
@@ -20,6 +21,6 @@ public class FloatingText : MonoBehaviour
         timeLived += Time.deltaTime;
 
         if(timeLived > lifeTime )
-            Destroy(gameObject);
+            Destroy(parent);
     }
 }

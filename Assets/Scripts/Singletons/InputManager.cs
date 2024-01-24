@@ -158,7 +158,7 @@ public class InputManager : MonoBehaviour
                     {
                         foreach (Unit unit in GlobalVariables.selectedUnits)
                         {
-                            // Debug.Log(unit.stateController);
+                            Debug.Log(unit.stateController);
                             unit.stateController.SwitchMovePosition(hit.point);
                         }
                     }

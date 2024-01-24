@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor.UIElements;
 using UnityEngine;
 
 public class Life : MonoBehaviour
@@ -89,8 +88,8 @@ public class Life : MonoBehaviour
 
     public void SpawnFloatingText(int dmg, bool heal)
     {
-        GameObject go = Instantiate(floatingText, transform.position - 2 * Vector3.forward, Quaternion.identity);
-        TextMeshPro txt = go.GetComponent<TextMeshPro>();
+        GameObject go = Instantiate(floatingText, transform.position + 2 * transform.lossyScale.y * Vector3.up, Quaternion.identity);
+        TextMeshPro txt = go.GetComponentInChildren<TextMeshPro>();
 
         txt.text = dmg.ToString();
         if (heal )

@@ -9,18 +9,20 @@ public class MovePositionState : BaseUnitState
 {
     public override void EnterState(UnitStateController stateController)
     {
+        Debug.Log("Enter move position");
         stateController.agent.SetDestination(stateController.targetPos);
+        Debug.Log(stateController.targetPos);
+        Debug.Log(stateController.agent.destination);
     }
 
     public override void ExitState(UnitStateController stateController)
     {
+        Debug.Log("Exit move position");
         stateController.agent.ResetPath();
     }
 
     public override void UpdateState(UnitStateController stateController)
     {
-        // Debug.Log(stateController.agent.pathPending);
-
         if (!stateController.agent.hasPath && !stateController.agent.pathPending)
         {
             stateController.SwitchState(stateController.idleState);

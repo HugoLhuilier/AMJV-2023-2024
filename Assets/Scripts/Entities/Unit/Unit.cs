@@ -20,10 +20,8 @@ public class Unit : Entity
 
     public bool isKing {  get; private set; }
 
-    public override void Start()
+    public void Awake()
     {
-        base.Start();
-
         isKing = false;
 
         moveable = GetComponent<Moveable>();
@@ -39,13 +37,20 @@ public class Unit : Entity
 
     private void OnDestroy()
     {
+        //Debug.Log("Gets destroyed");
+
         if (team.isAttacker)
             GlobalVariables.attackUnits.Remove(this);
         else
             GlobalVariables.defenseUnits.Remove(this);
 
-        if ((isKing || GlobalVariables.attackUnits.Count == 0) && GameManager.Instance.isQuitting)
+        if (isKing || GlobalVariables.attackUnits.Count == 0)
+        {
+            Debug.Log(isKing);
+            Debug.Log(GlobalVariables.attackUnits.Count);
+
             GameManager.Instance.LoseGame();
+        }   
     }
 
     public void getSelected()
