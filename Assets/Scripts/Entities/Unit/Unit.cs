@@ -79,4 +79,20 @@ public class Unit : Entity
         GameObject flag = Instantiate(GameManager.Instance.carriedFlag, transform);
         flag.transform.Translate(3 * Vector3.up);
     }
+
+    public void BecomeAttacker(bool attacker)
+    {
+        team.isAttacker = attacker;
+
+        if (attacker)
+        {
+            GlobalVariables.attackUnits.Add(this);
+            GlobalVariables.defenseUnits.Remove(this);
+        }
+        else
+        {
+            GlobalVariables.attackUnits.Remove(this);
+            GlobalVariables.defenseUnits.Add(this);
+        }
+    }
 }
