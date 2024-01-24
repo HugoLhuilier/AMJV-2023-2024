@@ -401,7 +401,7 @@ MonoBehaviour:
   cooldownTime: 1
   forAllies: 0
   range: 20
-  bulletDamages: 5
+  bulletDamages: 4
   shootPoint: {fileID: 1738113764836328530}
   bullet: {fileID: 6242941482952310878, guid: 68295cc5ffe9600489e923d914ff0168, type: 3}
   capacityAudioClip: {fileID: 8300000, guid: ca65239c9c80743ad9dab137a815196a, type: 3}

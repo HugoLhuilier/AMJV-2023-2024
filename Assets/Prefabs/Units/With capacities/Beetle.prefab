@@ -445,9 +445,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cooldownTime: 0.5
+  forAllies: 0
   range: 2.5
   attackRadius: 1
-  damages: 3
+  damages: 4
+  knockback: 0
 --- !u!114 &4700565585515418188
 MonoBehaviour:
   m_ObjectHideFlags: 0
