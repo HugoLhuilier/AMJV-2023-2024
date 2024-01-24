@@ -1,12 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using TMPro.Examples;
-using UnityEditor.UI;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
-using static UnityEngine.UI.CanvasScaler;
 
 public class Overlay : MonoBehaviour
 {
