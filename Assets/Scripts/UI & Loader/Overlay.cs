@@ -38,7 +38,7 @@ public class Overlay : MonoBehaviour
                     {
                         specialCapacityString = $"{Convert.ToInt32(specialCapacity.cooldownState)} s";
                     }
-                    globalText.text += $" * Type    : <#00aaff>{unit.name}</color>\n";
+                    globalText.text += $"\n * Type    : <#00aaff>{unit.name}</color>\n";
                     globalText.text += $"   HP      : <#ff584d>{life.life}</color>\n";
                     globalText.text += $"   Shield  : <#2fff00>{life.shield}</color>\n";
                     globalText.text += $"   Special : <#2fff00>{specialCapacityString}</color>\n";

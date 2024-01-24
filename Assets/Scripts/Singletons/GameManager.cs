@@ -1,3 +1,4 @@
+using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private MainMenu menu;
     public GameObject carriedFlag;
     public bool isQuitting = false;
+    [SerializeField] private SelectionConsole selectionConsole;
 
     [SerializeField] private AudioClip selectionSFX;
 
@@ -26,6 +28,8 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        GlobalVariables.ResetSelectedUnits();
+        selectionConsole.refresh = true;
         isQuitting = false;
         Time.timeScale = 1;
         Debug.Log("Game started");
@@ -34,7 +38,8 @@ public class GameManager : MonoBehaviour
 
     public void WinGame()
     {
-        if(!isQuitting)
+        GlobalVariables.ResetSelectedUnits();
+        if (!isQuitting)
         {
             Debug.Log("Win");
             isQuitting = true;
@@ -44,6 +49,7 @@ public class GameManager : MonoBehaviour
 
     public void LoseGame()
     {
+        GlobalVariables.ResetSelectedUnits();
         if (!isQuitting)
         {
             Debug.Log("Lose");
