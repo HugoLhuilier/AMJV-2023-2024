@@ -21,5 +21,9 @@ public class TargetUnityState : BaseEnnemyState
         {
             stateController.SwitchState(stateController.defaultState);
         }
+        else if(!stateController.unitTargetUnity.isKing)
+        {
+            stateController.CheckKingOnly();
+        }
     }
 }

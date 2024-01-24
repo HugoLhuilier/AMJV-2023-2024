@@ -61,15 +61,8 @@ public class Unit : Entity
     public void BecomeKing()
     {
         isKing = true;
-        GlobalVariables.Instance.king = this; 
 
-        foreach (Unit unit in GlobalVariables.defenseUnits)
-        {
-            EnnemyStateController con = unit.GetComponent<EnnemyStateController>();
-            con.TargetKing();
-        }
-
-        // Debug.Log(GameManager.Instance);
+        Debug.Log(GameManager.Instance);
 
         GameObject flag = Instantiate(GameManager.Instance.carriedFlag, transform);
         flag.transform.Translate(3 * Vector3.up);
