@@ -384,6 +384,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   menu: {fileID: 0}
   carriedFlag: {fileID: 0}
+  isQuitting: 0
+  selectionSFX: {fileID: 0}
 --- !u!4 &584804052
 Transform:
   m_ObjectHideFlags: 0
@@ -611,6 +613,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   defGroundHeight: -1.407889
+  spawnPos: {fileID: 0}
+  king: {fileID: 0}
+  floatingText: {fileID: 6264739689441501475, guid: f1ef8c2a43011594c9b69eea516e12d6, type: 3}
 --- !u!4 &807386179
 Transform:
   m_ObjectHideFlags: 0
