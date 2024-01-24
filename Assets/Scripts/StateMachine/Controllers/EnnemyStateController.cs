@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 
-// public enum DefaultState { PatrolState, IdleState}
+// public enum DefaultState { PatrolState, AttackState}
 
 public class EnnemyStateController : MonoBehaviour
 {
@@ -88,7 +88,7 @@ public class EnnemyStateController : MonoBehaviour
         }
     }
 
-    public void CheckKingOnly()
+/*    public void CheckKingOnly()
     {
         Collider[] hit = Physics.OverlapSphere(transform.position, visionRange, GlobalVariables.unitMask);
 
@@ -101,12 +101,18 @@ public class EnnemyStateController : MonoBehaviour
                 return;
             }
         }
-    }
+    }*/
 
 
     public void SetTargetUnityEnnemy(Transform targetTr)
     {
         targetUnity = targetTr;
         unitTargetUnity = targetTr.GetComponent<Unit>();
+    }
+
+    public void TargetKing()
+    {
+        SetTargetUnityEnnemy(GlobalVariables.Instance.king.transform);
+        SwitchState(targetUnityState);
     }
 }
