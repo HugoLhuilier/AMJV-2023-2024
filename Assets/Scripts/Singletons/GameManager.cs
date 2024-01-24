@@ -16,8 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private MainMenu menu;
     public GameObject carriedFlag;
     public bool isQuitting = false;
-    [SerializeField] private SelectionConsole selectionConsole;
-
+    
     [SerializeField] private AudioClip selectionSFX;
 
     private void Start()
@@ -28,8 +27,6 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        GlobalVariables.ResetSelectedUnits();
-        selectionConsole.refresh = true;
         isQuitting = false;
         Time.timeScale = 1;
         Debug.Log("Game started");

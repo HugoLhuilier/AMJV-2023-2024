@@ -75,8 +75,6 @@ public class MainMenu : MonoBehaviour
 
     protected void Abort()
     {
-        GlobalVariables.ResetSelectedUnits();
-        selectionSytem.GetComponent<SelectionConsole>().refresh = true;
         Debug.Log("abort");
         GameManager.Instance.isQuitting = true;
         GameManager.Instance.UnloadLevel();
