@@ -2,8 +2,10 @@ using UnityEngine;
 
 public class Life : MonoBehaviour
 {
-    /* Implémente le système de points de vie à l'objet. Il dispose ainsi d'un nombre de points de vies, nombre de points de vie maximum, un éventuel shield déduisant
-     * le nombre de dégâts reçus (tout en reçevant toujours au moins 1 point de dégâts), et il peut recevoir des dégâts ou du heal. */
+    /* Implï¿½mente le systï¿½me de points de vie ï¿½ l'objet. Il dispose ainsi d'un nombre de points de vies, nombre de points de vie maximum, un ï¿½ventuel shield dï¿½duisant
+     * le nombre de dï¿½gï¿½ts reï¿½us (tout en reï¿½evant toujours au moins 1 point de dï¿½gï¿½ts), et il peut recevoir des dï¿½gï¿½ts ou du heal. */
+
+    private GameObject floatingText;
 
     public int maxLife;
     public int shield;
@@ -16,6 +18,7 @@ public class Life : MonoBehaviour
     private void Start()
     {
         life = maxLife;
+        floatingText = GlobalVariables.Instance.floatingText;
     }
 
     public void GetDamages(int damage)
@@ -23,16 +26,21 @@ public class Life : MonoBehaviour
         if (invincible)
             return;
 
+        int damagesTaken = 0;
+
         if (damage <= shield)
         {
-            life--;
+            damagesTaken = 1;
         }
 
         else
         {
-            life = life - damage + shield;
+            damagesTaken = damage - shield;
         }
 
+        life -= damagesTaken;
+
+        SpawnFloatingText(damagesTaken, false);
 
         // Debug.Log("AIIIEUUUUH IL ME RESTE " + life + " PONTS DE VIE");
 
@@ -46,6 +54,7 @@ public class Life : MonoBehaviour
     {
         // Debug.Log("Je suis heal <3 <3");
         life = Mathf.Min(life + heal, maxLife);
+        SpawnFloatingText(heal, true);
     }
 
     public void Die()
@@ -71,6 +80,22 @@ public class Life : MonoBehaviour
         {
             acidCooldown -= 1;
             GetDamages(damages);
+        }
+    }
+
+    public void SpawnFloatingText(int dmg, bool heal)
+    {
+        GameObject go = Instantiate(floatingText, transform.position + 2 * transform.lossyScale.y * Vector3.up, Quaternion.identity);
+        TextMeshPro txt = go.GetComponentInChildren<TextMeshPro>();
+
+        txt.text = dmg.ToString();
+        if (heal )
+        {
+            txt.color = Color.green;
+        }
+        else
+        {
+            txt.color = Color.red;
         }
     }
 }

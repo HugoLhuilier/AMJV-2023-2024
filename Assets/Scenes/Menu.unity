@@ -3940,6 +3940,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   defGroundHeight: 0
+  spawnPos: {fileID: 0}
+  king: {fileID: 0}
+  floatingText: {fileID: 5654015047348157661, guid: 6772f9a65fc552b428b13bf176aeb338, type: 3}
 --- !u!1 &1212553393
 GameObject:
   m_ObjectHideFlags: 0

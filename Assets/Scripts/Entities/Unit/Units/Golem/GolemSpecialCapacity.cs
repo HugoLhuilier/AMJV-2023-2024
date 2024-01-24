@@ -10,10 +10,12 @@ public class GolemSpecialCapacity : SpecialCapacity
 
     private UnitStateController controller;
     private float angleDelta;
+    private Team team;
 
     private void Start()
     {
         controller = GetComponent<UnitStateController>();
+        team = GetComponent<Team>();
 
         angleDelta = 360 / nbMiniGolems;
     }
@@ -41,6 +43,9 @@ public class GolemSpecialCapacity : SpecialCapacity
     public void SpawnMiniGolem(Vector3 relPos)
     {
         GameObject ins = Instantiate(miniGolem, transform.position + relPos, transform.rotation);
+        Unit unit = ins.GetComponentInChildren<Unit>();
+
+        unit.BecomeAttacker(team.isAttacker);
 
         if (controller.currentState == controller.castCapacityState || controller.currentState == controller.moveToCapacity)
         {

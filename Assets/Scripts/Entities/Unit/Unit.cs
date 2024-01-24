@@ -20,10 +20,8 @@ public class Unit : Entity
 
     public bool isKing {  get; private set; }
 
-    public override void Start()
+    public void Awake()
     {
-        base.Start();
-
         isKing = false;
 
         moveable = GetComponent<Moveable>();
@@ -39,13 +37,20 @@ public class Unit : Entity
 
     private void OnDestroy()
     {
+        //Debug.Log("Gets destroyed");
+
         if (team.isAttacker)
             GlobalVariables.attackUnits.Remove(this);
         else
             GlobalVariables.defenseUnits.Remove(this);
 
-        if ((isKing || GlobalVariables.attackUnits.Count == 0) && GameManager.Instance.isQuitting)
+        if (isKing || GlobalVariables.attackUnits.Count == 0)
+        {
+            Debug.Log(isKing);
+            Debug.Log(GlobalVariables.attackUnits.Count);
+
             GameManager.Instance.LoseGame();
+        }   
     }
 
     public void getSelected()
@@ -61,10 +66,33 @@ public class Unit : Entity
     public void BecomeKing()
     {
         isKing = true;
+        GlobalVariables.Instance.king = this; 
 
-        Debug.Log(GameManager.Instance);
+        foreach (Unit unit in GlobalVariables.defenseUnits)
+        {
+            EnnemyStateController con = unit.GetComponent<EnnemyStateController>();
+            con.TargetKing();
+        }
+
+        // Debug.Log(GameManager.Instance);
 
         GameObject flag = Instantiate(GameManager.Instance.carriedFlag, transform);
         flag.transform.Translate(3 * Vector3.up);
+    }
+
+    public void BecomeAttacker(bool attacker)
+    {
+        team.isAttacker = attacker;
+
+        if (attacker)
+        {
+            GlobalVariables.attackUnits.Add(this);
+            GlobalVariables.defenseUnits.Remove(this);
+        }
+        else
+        {
+            GlobalVariables.attackUnits.Remove(this);
+            GlobalVariables.defenseUnits.Add(this);
+        }
     }
 }
