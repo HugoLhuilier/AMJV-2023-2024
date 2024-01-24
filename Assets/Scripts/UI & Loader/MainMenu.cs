@@ -51,6 +51,7 @@ public class MainMenu : MonoBehaviour
             Time.timeScale = 0;
             menu.SetActive(true);
             pauseMenu.SetActive(true);
+            selectionSytem.SetActive(false);
             AudioManager.Instance.PlaySFX(goAudioClip);
         }
     }
@@ -93,6 +94,7 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1;
         menu.SetActive(false);
         pauseMenu.SetActive(false);
+        selectionSytem.SetActive(true);
         AudioManager.Instance.PlaySFX(goAudioClip);
         AudioManager.Instance.Level(GameManager.Instance.selectedLevelIndex);
     }
