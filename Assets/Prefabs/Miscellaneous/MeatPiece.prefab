@@ -144,5 +144,5 @@ MonoBehaviour:
   stopSpeed: 0.1
   stopTime: 1
   bigWorm: {fileID: 2068908581422856842, guid: c7d217760ba5f764fbca617c74050fd3, type: 3}
-  bigWormCooldown: 5
+  bigWormCooldown: 3
   bigWormSpawnDist: 10
